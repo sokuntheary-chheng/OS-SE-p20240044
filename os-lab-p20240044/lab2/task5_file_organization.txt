@@ -1,0 +1,156 @@
+=== Task 5: File Organization ===
+--- Moved server_notice.txt to devops/ ---
+Dockerfile
+docker-compose.yml
+handbook.txt
+pipeline.txt
+server_notice.txt
+--- Moved logo_brief.txt to marketing/assets/ ---
+banner.jpg
+brochure.pdf
+logo.png
+logo_brief.txt
+--- Removed temp_debug.log from policies/ ---
+leave_policy.txt
+remote_work.txt
+--- Moved handbook.txt to hr/onboarding/ ---
+checklist.txt
+handbook.txt
+task5_file_organization.txt
+welcome_guide.txt
+--- Copied leave_policy.txt to onboarding/ ---
+checklist.txt
+handbook.txt
+leave_policy.txt
+task5_file_organization.txt
+welcome_guide.txt
+--- Renamed q1_launch.txt to q1_2026_launch.txt ---
+q1_2026_launch.txt
+social_media.txt
+--- Final Structure ---
+techcorp
+├── engineering
+│   ├── backend
+│   │   ├── app.js
+│   │   ├── database.sql
+│   │   └── server_config.txt
+│   ├── devops
+│   │   ├── Dockerfile
+│   │   ├── docker-compose.yml
+│   │   ├── pipeline.txt
+│   │   └── server_notice.txt
+│   └── frontend
+│       ├── app_config.txt
+│       ├── index.html
+│       └── styles.css
+├── hr
+│   ├── onboarding
+│   │   ├── checklist.txt
+│   │   ├── handbook.txt
+│   │   ├── leave_policy.txt
+│   │   ├── task5_file_organization.txt
+│   │   └── welcome_guide.txt
+│   └── policies
+│       ├── leave_policy.txt
+│       └── remote_work.txt
+└── marketing
+    ├── assets
+    │   ├── banner.jpg
+    │   ├── brochure.pdf
+    │   ├── logo.png
+    │   └── logo_brief.txt
+    └── campaigns
+        ├── q1_2026_launch.txt
+        └── social_media.txt
+
+11 directories, 23 files
+techcorp
+├── engineering
+│   ├── backend
+│   │   ├── app.js
+│   │   ├── database.sql
+│   │   └── server_config.txt
+│   ├── devops
+│   │   ├── Dockerfile
+│   │   ├── docker-compose.yml
+│   │   ├── pipeline.txt
+│   │   └── server_notice.txt
+│   └── frontend
+│       ├── app_config.txt
+│       ├── index.html
+│       └── styles.css
+├── hr
+│   ├── onboarding
+│   │   ├── checklist.txt
+│   │   ├── handbook.txt
+│   │   ├── leave_policy.txt
+│   │   ├── task5_file_organization.txt
+│   │   └── welcome_guide.txt
+│   └── policies
+│       ├── leave_policy.txt
+│       └── remote_work.txt
+└── marketing
+    ├── assets
+    │   ├── banner.jpg
+    │   ├── brochure.pdf
+    │   ├── logo.png
+    │   └── logo_brief.txt
+    └── campaigns
+        ├── q1_2026_launch.txt
+        └── social_media.txt
+
+11 directories, 23 files
+--- Challenge File Organization ---
+Dockerfile
+docker-compose.yml
+pipeline.txt
+security_audit.txt
+server_notice.txt
+app.js
+database.sql
+pipeline_backup.txt
+server_config.txt
+q1_2026_launch.txt
+social_media.txt
+frontend_config.txt
+index.html
+styles.css
+--- Final Challenge Structure ---
+techcorp
+├── engineering
+│   ├── backend
+│   │   ├── app.js
+│   │   ├── database.sql
+│   │   ├── pipeline_backup.txt
+│   │   └── server_config.txt
+│   ├── devops
+│   │   ├── Dockerfile
+│   │   ├── docker-compose.yml
+│   │   ├── pipeline.txt
+│   │   ├── security_audit.txt
+│   │   └── server_notice.txt
+│   └── frontend
+│       ├── frontend_config.txt
+│       ├── index.html
+│       └── styles.css
+├── hr
+│   ├── onboarding
+│   │   ├── checklist.txt
+│   │   ├── handbook.txt
+│   │   ├── leave_policy.txt
+│   │   ├── task5_file_organization.txt
+│   │   └── welcome_guide.txt
+│   └── policies
+│       ├── leave_policy.txt
+│       └── remote_work.txt
+└── marketing
+    ├── assets
+    │   ├── banner.jpg
+    │   ├── brochure.pdf
+    │   ├── logo.png
+    │   └── logo_brief.txt
+    └── campaigns
+        ├── q1_2026_launch.txt
+        └── social_media.txt
+
+11 directories, 25 files
