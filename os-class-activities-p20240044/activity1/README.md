@@ -8,9 +8,9 @@
 
 ## Warm-Up: Hello System Call
 
-os-class-activities-p20240044\activity1\screenshots\hello_syscall.png
+![Hello syscall](screenshots/hello_syscall.png)
 
-os-class-activities-p20240044\activity1\screenshots\copyfilesyscall.png
+![Copy file syscall](screenshots/copyfilesyscall.png)
 
 ---
 
@@ -25,10 +25,10 @@ open() with O_WRONLY, O_CREAT, O_TRUNC, then write() with the exact
 byte count, then close(). Both produce identical output.
 
 **Version A — Library Functions (file_creator_lib.c):**
-os-class-activities-p20240044\activity1\screenshots\task1_creator_lib.png
+![Task 1A - Library](screenshots/task1_creator_lib.png)
 
 **Version B — POSIX System Calls (file_creator_sys.c):**
-os-class-activities-p20240044\activity1\screenshots\task1_creator_sys.png
+![Task 1A - Syscall](screenshots/task1_creator_sys.png)
 
 **Questions:**
 
@@ -63,10 +63,10 @@ handles newlines automatically. The syscall version uses read() which
 returns raw bytes and requires a while loop. Both display identical output.
 
 **Version A — Library Functions (file_reader_lib.c):**
-os-class-activities-p20240044\activity1\screenshots\task1_reader_lib.png
+![Task 1B - Library](screenshots/task1_reader_lib.png)
 
 **Version B — POSIX System Calls (file_reader_sys.c):**
-os-class-activities-p20240044\activity1\screenshots\task1_reader_sys.png
+![Task 1B - Syscall](screenshots/task1_reader_sys.png)
 
 **Questions:**
 
@@ -95,10 +95,10 @@ The syscall version uses snprintf() to format into a buffer first
 then write() to send it to the terminal. Output is identical.
 
 ### Version A — Library Functions (dir_list_lib.c)
-os-class-activities-p20240044\activity1\screenshots\task2_lib.png
+![Task 2 - Version A](screenshots/task2_lib.png)
 
 ### Version B — System Calls (dir_list_sys.c)
-os-class-activities-p20240044\activity1\screenshots\task2_sys.png
+![Task 2 - Version B](screenshots/task2_sys.png)
 
 ### Questions
 
@@ -126,7 +126,7 @@ os-class-activities-p20240044\activity1\screenshots\task2_sys.png
 
 ## Optional Bonus: Windows API (file_creator_win.c)
 
-os-class-activities-p20240044\activity1\screenshots\task1_win.png
+![Task 1 - Windows](screenshots/task1_win.png)
 
 ### Bonus Questions
 
@@ -167,20 +167,20 @@ sets up memory with mmap and brk, and uses fstat — all hidden overhead
 that the syscall version completely avoids.
 
 ### strace Output — Library Version (File Creator)
-os-class-activities-p20240044\activity1\screenshots\strace_lib_creator.png
+![strace - Library version File Creator](screenshots/strace_lib_creator.png)
 
 ### strace Output — System Call Version (File Creator)
-os-class-activities-p20240044\activity1\screenshots\strace_sys_creator.png
+![strace - Syscall version File Creator](screenshots/strace_sys_creator.png)
 
 ### strace Output — Library Version (File Reader)
-os-class-activities-p20240044\activity1\screenshots\strace_sys_reader.png
+![strace - Library version reader](screenshots/strace_lib_reader.png)
 
 ### strace Output — System Call Version (File Reader)
-os-class-activities-p20240044\activity1\screenshots\strace_sys_reader.png
+![strace - Syscall version reader](screenshots/strace_sys_reader.png)
 
 ### strace -c Summary Comparison
-os-class-activities-p20240044\activity1\screenshots\strace_summary_lib.png
-os-class-activities-p20240044\activity1\screenshots\strace_summary_sys.png
+![strace summary - Library](screenshots/strace_summary_lib.png)
+![strace summary - Syscall](screenshots/strace_summary_sys.png)
 
 ### Questions
 
@@ -225,17 +225,16 @@ os-class-activities-p20240044\activity1\screenshots\strace_summary_sys.png
 ## Task 4: Exploring OS Structure
 
 ### System Information
-os-class-activities-p20240044\activity1\screenshots\task4_system_info.png
+![System Info](screenshots/task4_system_info.png)
 
 ### Process Information
-os-class-activities-p20240044\activity1\screenshots\task4_process_info1.png
-os-class-activities-p20240044\activity1\screenshots\task4_process_info2.png
+![Process Info](screenshots/task4_process_info.png)
 
 ### Kernel Modules
-os-class-activities-p20240044\activity1\screenshots\task4_modules.png
+![Kernel Modules](screenshots/task4_modules.png)
 
 ### OS Layers Diagram
-os-class-activities-p20240044\activity1\screenshots\task4_os_layers_diagram.png
+![OS Layers Diagram](screenshots/task4_os_layers_diagram.png)
 
 ### Questions
 
