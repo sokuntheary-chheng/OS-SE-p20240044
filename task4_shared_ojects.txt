@@ -1,0 +1,5 @@
+	linux-vdso.so.1 (0x00007ffcba5a4000)
+	libselinux.so.1 => /lib/x86_64-linux-gnu/libselinux.so.1 (0x000077f0be857000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x000077f0be600000)
+	libpcre2-8.so.0 => /lib/x86_64-linux-gnu/libpcre2-8.so.0 (0x000077f0be566000)
+	/lib64/ld-linux-x86-64.so.2 (0x000077f0be8bb000)
