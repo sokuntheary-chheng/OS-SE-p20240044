@@ -1,3 +1,0 @@
-log_feb.log
-log_jan.log
-log_mar.log
