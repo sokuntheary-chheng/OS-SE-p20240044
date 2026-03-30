@@ -1,0 +1,81 @@
+=== Task2: Hard Hard Links and Symbolic Links ===
+--- Original file ---
+14355223812338608 -rwxrwxrwx 1 sparkling sparkling 35 Mar 26 07:41 config_original.txt
+TechCorp Global Configuration v3.1
+
+--- After creating dard link ---
+14355223812338608 -rwxrwxrwx 2 sparkling sparkling 35 Mar 26 07:41 config_hardlink.txt
+14355223812338608 -rwxrwxrwx 2 sparkling sparkling 35 Mar 26 07:41 config_original.txt
+
+
+--- Content via hard link ---
+TechCorp Global Configuration v3.1
+--- Content via symbolic link ---
+TechCorp Global Configuration v3.1
+
+hard link content:
+TechCorp Global Configuration v3.1
+Updated: New security patch applied.
+Symlink content:
+TechCorp Global Configuration v3.1
+Updated: New security patch applied.
+
+--- After deleteing original file --- 
+Hard link still works:
+TechCorp Global Configuration v3.1
+Updated: New security patch applied.
+Symlink is broken:
+cat: config_symlink.txt: No such file or directory
+14355223812338608 -rwxrwxrwx 1 sparkling sparkling 72 Mar 26 09:22 config_hardlink.txt
+42221246506621613 lrwxrwxrwx 1 sparkling sparkling 19 Mar 26 09:19 config_symlink.txt -> config_original.txt
+
+--- readlink on symlink ---
+  File: config_hardlink.txt
+  Size: 72        	Blocks: 0          IO Block: 512    regular file
+Device: 0,68	Inode: 14355223812338608  Links: 1
+Access: (0777/-rwxrwxrwx)  Uid: ( 1000/sparkling)   Gid: ( 1000/sparkling)
+Access: 2026-03-26 09:22:56.995247700 +0700
+Modify: 2026-03-26 09:22:56.995247700 +0700
+Change: 2026-03-26 09:27:55.301865900 +0700
+ Birth: -
+--- readlink on symlink ---
+config_original.txt
+
+lrwxrwxrwx 1 sparkling sparkling 17 Mar 26 12:37 web_shortcut -> projects/frontend
+index.html
+
+--- Real-world symlinks in /usr/bin ---
+lrwxrwxrwx 1 root root      10 Nov 12 19:15 /usr/bin/python3 -> python3.12
+-rwxr-xr-x 1 root root 8020928 Mar  3 19:15 /usr/bin/python3.12
+ls: cannot access '/usr/bin/pythoon*': No such file or directory
+--- Symlinks in /etc/alternatives ---
+total 12
+drwxr-xr-x  2 root root 4096 Mar 20 06:40 .
+drwxr-xr-x 88 root root 4096 Mar 26 13:02 ..
+-rw-r--r--  1 root root  100 Mar 31  2024 README
+lrwxrwxrwx  1 root root   13 Jan  7  2025 awk -> /usr/bin/gawk
+lrwxrwxrwx  1 root root   29 Jan  7  2025 awk.1.gz -> /usr/share/man/man1/gawk.1.gz
+lrwxrwxrwx  1 root root   38 Mar 31  2024 builtins.7.gz -> /usr/share/man/man7/bash-builtins.7.gz
+lrwxrwxrwx  1 root root   16 Nov 18  2020 c89 -> /usr/bin/c89-gcc
+lrwxrwxrwx  1 root root   32 Nov 18  2020 c89.1.gz -> /usr/share/man/man1/c89-gcc.1.gz
+lrwxrwxrwx  1 root root   16 Nov 18  2020 c99 -> /usr/bin/c99-gcc
+lrwxrwxrwx  1 root root   32 Jan 31  2024 c99.1.gz -> /usr/share/man/man1/c99-gcc.1.gz
+lrwxrwxrwx  1 root root   12 Jan 31  2024 cc -> /usr/bin/gcc
+lrwxrwxrwx  1 root root   28 Jan 31  2024 cc.1.gz -> /usr/share/man/man1/gcc.1.gz
+lrwxrwxrwx  1 root root   12 Jan 31  2024 cpp -> /usr/bin/cpp
+lrwxrwxrwx  1 root root    9 Jan  7  2025 editor -> /bin/nano
+lrwxrwxrwx  1 root root   29 Jan  7  2025 editor.1.gz -> /usr/share/man/man1/nano.1.gz
+lrwxrwxrwx  1 root root   18 Jan  7  2025 ex -> /usr/bin/vim.basic
+lrwxrwxrwx  1 root root   28 Jan  7  2025 ex.1.gz -> /usr/share/man/man1/vim.1.gz
+lrwxrwxrwx  1 root root   31 Jan  7  2025 ex.da.1.gz -> /usr/share/man/da/man1/vim.1.gz
+lrwxrwxrwx  1 root root   31 Jan  7  2025 ex.de.1.gz -> /usr/share/man/de/man1/vim.1.gz
+--- Challenge Links ---
+21392098231125559 -rwxrwxrwx 3 sparkling sparkling 35 Mar 26 14:27 links_lab/eng_data.txt
+21392098231125559 -rwxrwxrwx 3 sparkling sparkling 35 Mar 26 14:27 links_lab/hr_data.txt
+21392098231125559 -rwxrwxrwx 3 sparkling sparkling 35 Mar 26 14:27 links_lab/shared_data.txt
+lrwxrwxrwx 1 sparkling sparkling 27 Mar 26 14:49 quick_access -> links_lab/projects/frontend
+index.html
+Shared resource across departments
+Shared resource across departments
+21392098231125559 -rwxrwxrwx 2 sparkling sparkling 35 Mar 26 14:27 links_lab/eng_data.txt
+21392098231125559 -rwxrwxrwx 2 sparkling sparkling 35 Mar 26 14:27 links_lab/hr_data.txt
