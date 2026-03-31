@@ -13,3 +13,7 @@ const char* tc_get_uptime(void);
 int tc_get_cpu_count(void);
 
 #endif
+
+--- Partner A: Compiled shared library ---
+libtechcorp_sysinfo.so: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, BuildID[sha1]=60f8bb6c6929618e9fac744d84d757ebe059d6b4, not stripped
+-rwxr-xr-x 1 sparkling sparkling 16048 Mar 31 16:12 libtechcorp_sysinfo.so

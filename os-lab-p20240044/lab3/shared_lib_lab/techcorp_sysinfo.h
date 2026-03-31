@@ -1,4 +1,4 @@
-#infndef TECHCORP_SYSINFO_H
+#ifndef TECHCORP_SYSINFO_H
 #define TECHCORP_SYSINFO_H
 
 //Return the hostname of the machine
