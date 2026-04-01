@@ -17,45 +17,58 @@ int tc_get_cpu_count(void);
 --- Partner A: Compiled shared library ---
 libtechcorp_sysinfo.so: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, BuildID[sha1]=60f8bb6c6929618e9fac744d84d757ebe059d6b4, not stripped
 -rwxr-xr-x 1 sparkling sparkling 16048 Mar 31 16:12 libtechcorp_sysinfo.so
+
+--- Integration: ldd on test program (before install) ---
+	linux-vdso.so.1 (0x00007fff3b746000)
+	libtechcorp_sysinfo.so => not found
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007522d7400000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007522d765c000)
+
+
+=====================================
+
+--- Partner B: Test program written ---
 #include <stdio.h>
 #include "techcorp_sysinfo.h"
 
 int main(void) {
-    printf("=== TechCorp System Info Report v2 ===\n");
-    printf("Hostname : %s\n", tc_get_hostname());
-    printf("Uptime   : %s\n", tc_get_uptime());
-    printf("CPU Cores: %d\n", tc_get_cpu_count());
-    printf("Memory   : %ld MB\n", tc_get_memory_mb());
-    printf("======================================\n");
-    return 0;
+printf("=== TechCorp System Info Report ===\n");
+printf("Hostname : %s\n", tc_get_hostname());
+printf("Uptime   : %s\n", tc_get_uptime());
+printf("CPU Cores: %d\n", tc_get_cpu_count());
+printf("=====================================\n");
+return 0;
 }
 
+--- Phase 4: Partner B recompiled library with new funcion ---
+libtechcorp_sysinfo.so: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, BuildID[sha1]=28e8deb81ee9da62bd2f819f3b9a5b6f33b891dc, not stripped
+
+--- Integrate ldd on test program (before install) ---
+	linux-vdso.so.1 (0x00007ffedb6c5000)
+	libtechcorp_sysinfo.so => not found
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x0000779d3b200000)
+	/lib64/ld-linux-x86-64.so.2 (0x0000779d3b5c8000)
+
+--- Integration: Test run (run LD_LIBRARY_PATH) ---
+=== TechCorp System Info Report ===
+Hostname : p20240044-server
+Uptime   : 5 hours, 21 minutes
+CPU Cores: 2
+=====================================
+
 --- Phase 4: Partner B recompiled library with new function ---
-libtechcorp_sysinfo.so: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, BuildID[sha1]=1c33d6a9382bf8d0a5efe5abb6fcb6460c1577b8, not stripped
+libtechcorp_sysinfo.so: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, BuildID[sha1]=28e8deb81ee9da62bd2f819f3b9a5b6f33b891dc, not stripped
 
---- Phase 4: v2 test run ---
-=== TechCorp System Info Report v2 ===
-Hostname : unknown
-Uptime   : 0 hours, 44 minutes
-CPU Cores: 12
-Memory   : 7759 MB
-======================================
-
---- System-wide install: ldconfig cache ---
+--- System-wide install: Idconfig cache ---
 	libtechcorp_sysinfo.so (libc6,x86-64) => /usr/local/lib/libtechcorp_sysinfo.so
 
 --- System-wide test (no LD_LIBRARY_PATH) ---
-	linux-vdso.so.1 (0x00007ffc471f0000)
-	libtechcorp_sysinfo.so => /usr/local/lib/libtechcorp_sysinfo.so (0x000071147195f000)
-	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x0000711471600000)
-	/lib64/ld-linux-x86-64.so.2 (0x0000711471970000)
-=== TechCorp System Info Report v2 ===
-Hostname : unknown
-Uptime   : 8 hours, 21 minutes
-CPU Cores: 12
-Memory   : 7759 MB
-======================================
+
+	linux-vdso.so.1 (0x00007ffcb8fda000)
+	libtechcorp_sysinfo.so => not found
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007d3107c00000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007d3107eff000)
 
 --- Pair Information ---
-Role A (Library Author → v2 Tester): Chheng Sokuntheary - p20240044
-Role B (Test Author → v2 Library Extender): Chheng Sokuntheary - p20240044
+Role A (Library Author -> v2 Tester): Chheng Sokuntheary - p20240044
+Role B (Test Author -> v2 Library Extender): Chheng Sokuntheary - p20240044
