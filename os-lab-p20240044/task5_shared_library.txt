@@ -1,0 +1,6 @@
+
+--- System-wide test (no LD_LIBRARY_PATH) ---
+ldd: ./sysinfo_test_v2: No such file or directory
+
+--- System-wide test (no LD_LIBRARY_PATH) ---
+ldd: ./sysinfo_test_v2: No such file or directory

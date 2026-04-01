@@ -10,4 +10,7 @@ const char* tc_get_uptime(void);
 //Returns the number of CPU cores 
 int tc_get_cpu_count(void);
 
+// NEW - Returns total memory in MB
+long tc_get_memory_mb(void);
+
 #endif
