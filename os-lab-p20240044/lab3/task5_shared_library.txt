@@ -68,3 +68,7 @@ libtechcorp_sysinfo.so: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), 
 	libtechcorp_sysinfo.so => not found
 	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007d3107c00000)
 	/lib64/ld-linux-x86-64.so.2 (0x00007d3107eff000)
+
+--- Pair Information ---
+Role A (Library Author -> v2 Tester): Chheng Sokuntheary - p20240044
+Role B (Test Author -> v2 Library Extender): Chheng Sokuntheary - p20240044

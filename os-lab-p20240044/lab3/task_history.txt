@@ -1,0 +1,101 @@
+=== Full Command History ===
+  295  cat task5_shared_library.txt
+  296  sudo rm task5_shared_library.txt
+  297  ls
+  298  cd lab3
+  299  ls
+  300  cat task5_shared_library.txt
+  301  ldd ./sysinfo_test_v2 >> ../task5_shared_library.txt 2>&1
+  302  cd shared_lib_lab
+  303  ldd ./sysinfo_test_v2 >> ../task5_shared_library.txt 2>&1
+  304  cd ..
+  305  cat task5_shared_library.txt
+  306  cd shared_lib_lab
+  307  ./sysinfo_test_v2 >> ../task5_shared_library.txt
+  308  ls
+  309  sysinfo_test_v2 >> ../task5_shared_library.txt
+  310  ./sysinfo_test_v2 >> ../task5_shared_library.txt
+  311  git fetch
+  312  git init
+  313  git status
+  314  git add .
+  315  git commit -m "Add new files shared_lib_lab folder"
+  316  git status
+  317  git checkout VM
+  318  git remote -v
+  319  git remote add origin https://github.com/sokunhteary-chheng/OS-SE-p20240044.git
+  320  git remote -v
+  321  git branch
+  322  git checkout VM
+  323  rm -rf .git
+  324  cd ..
+  325  git status
+  326  git add .
+  327  git commit -m "Updated lab3 files and task5"
+  328  git push origin VM
+  329  git fetch origin
+  330  git checkout origin/main -- os-lab-p20240044/lab3/share_lib_lab/libtechcorp_sysinfo.so
+  331  git status
+  332  git fetch origin main
+  333  cd os-lab-p20240044
+  334  cd lab3
+  335  ls
+  336  cat task5_shared_library.txt
+  337  ldconfig
+  338  echo "" >> ../task5_shared_library.txt
+  339* echo "Pair B): Chheng Sokuntheary - p20240044" >> ../task5_shared_library.txt
+  340  sudo nano task5_shared_library.txt
+  341  cd shared_lib_lab
+  342  echo "" >> ../task5_shared_library.txt
+  343  echo "--- Pair Information ---" >> ../task5_shared_library.txt
+  344  echo "Role A (Library Author -> v2 Tester): Chheng Sokuntheary - p20240044" >> ../task5_shared_library.txt
+  345  echo "Role A (Test Author -> v2 Library Extender): Chheng Sokuntheary - p20240044" >> ../task5_shared_library.txt
+  346  cd ..
+  347  clear
+  348  pwd
+  349  cd shared_lib_lab
+  350  ls
+  351  cd ..
+  352  ls
+  353  cat task5_shared_library.txt
+  354  sudo nano task5_shared_library.txt
+  355  clear
+  356  ls
+  357  cd ..
+  358  ls
+  359  sudo rm task5_shared_library.txt
+  360  ls
+  361  cd lab3
+  362  cd shared_lib_lab
+  363  gcc sysinfo_test_v2.c -L/usr/local/lib -ltechcorp_sysinfo -o sysinfo_test_v2
+  364  gcc sysinfo_test_v2.c -L/usr/local/lib -libtechcorp_sysinfo -o sysinfo_test_v2
+  365  clear
+  366  echo "=== idconfig ===" && idconfig -p | grep techcorp && echo "=== ldd ===" && ldd ./sysinfo_test_v2 && echo "=== test run ===" && ./sysinfo_test_v2
+  367  echo "=== ldconfig ===" && ldconfig -p | grep techcorp && echo "=== ldd ===" && ldd ./sysinfo_test_v2 && echo "=== test run ===" && ./sysinfo_test_v2
+  368  clear
+  369  gcc sysinfo_test_v2.c -L/usr/local/lib -ltechcorp_sysinfo -o sysinfo_test_v2
+  370  gcc sysinfo_test_v2.c -L/usr/local/lib -libtechcorp_sysinfo -o sysinfo_test_v2
+  371  ls ~/OS-SE-p20240044/os-lab-p20240044/lab3/shared_lib_lab/
+  372  sudo cp libtechcorp_sysinfo.so /usr/local/lib
+  373  sudo ldconfig
+  374  gcc sysinfo_test_v2.c -L/usr/local/lib -libtechcorp_sysinfo -o sysinfo_test_v2
+  375  cd ..
+  376  git fetch origin main
+  377  git checkout origin/main -- os-lab-p20240044/lab3/shared_lib_lab/libtechcorp_sysinfo.so
+  378  ls shared_lib_lab/
+  379  cd os-lab-p20240044
+  380  cd lab3
+  381  cd shared_lib_lab
+  382  ls
+  383  sudo cp libtechcorp_sysinfo.so /usr/local/lib/
+  384  sudo ldconfig
+  385  gcc sysinfo_test_v2.c -L/usr/local/lib -libtechcorp_sysinfo -o sysinfo_test_v2
+  386  ls -la /usr/local/lib/libtechcorp_sysinfo.so
+  387* 
+  388  ls -la /usr/local/lib/libtechcorp_sysinfo.so
+  389  gcc sysinfo_test_v2.c /usr/local/lib/libtechcorp_sysinfo.so -o sysinfo_test_v2
+  390  echo "=== ldconfig ===" && ldconfig -p | grep techcorp && echo "=== ldd ===" && ldd ./sysinfo_test_v2 && echo "=== test run ===" && ./sysinfo_test_v2
+  391  cd ..
+  392  echo "=== Full Command History ===" > task_history.txt
+  393  history | tail -n 100
+  394  history | tail -n 100 >> task_history.txt
