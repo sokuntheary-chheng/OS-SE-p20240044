@@ -1,0 +1,17 @@
+# Compile and run library version
+gcc -o file_creator_lib file_creator_lib.c
+./file_creator_lib
+cat output.txt
+
+# Compile and run syscall version
+gcc -o file_creator_sys file_creator_sys.c
+./file_creator_sys
+cat output.txt
+
+# Compile and run file reader library version
+gcc -o file_reader_lib file_reader_lib.c
+./file_reader_lib
+
+# Compile and run file reader syscall version
+gcc -o file_reader_sys file_reader_sys.c
+./file_reader_sys
