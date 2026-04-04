@@ -1,0 +1,20 @@
+ 1688  nano three_children.c
+ 1689  gcc -o three_children three_children.c
+ 1690  ./three_children &
+ 1691  sudo apt update
+ 1692  sudo apt install build-essential -y
+ 1693  ls
+ 1694  cd os-class-activities-p20240044
+ 1695  ls
+ 1696  mkdir acitivity2
+ 1697  ls
+ 1698  mv acitivity2 activity2
+ 1699  ls
+ 1700  cd activity2
+ 1701  mkdir task1
+ 1702  cd task1
+ 1703  nano forkchild.c
+ 1704  gcc -o forkchild forkchild.c
+ 1705  ./forkchild > result_forkchild.txt 2>&1
+ 1706  ./forkchild
+ 1707  history | tail -n 20 > command_used_forkchild.txt

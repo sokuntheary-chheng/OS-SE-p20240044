@@ -1,0 +1,10 @@
+total 32
+drwxr-xr-x 2 sparkling sparkling  4096 Apr  4 11:03 .
+drwxr-xr-x 3 sparkling sparkling  4096 Apr  4 11:00 ..
+-rwxr-xr-x 1 sparkling sparkling 16400 Apr  4 11:02 forkchild
+-rw-r--r-- 1 sparkling sparkling  1431 Apr  4 11:01 forkchild.c
+-rw-r--r-- 1 sparkling sparkling     0 Apr  4 11:03 result_forkchild.txt
+Parent process (PID: 13426) — creating child...
+Parent: waiting for child (PID: 13427) to finish...
+Parent: child exited with status 0
+Parent: done.
