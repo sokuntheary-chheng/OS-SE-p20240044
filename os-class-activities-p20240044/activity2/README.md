@@ -136,36 +136,47 @@ Screenshot showing PID and Parent PID in the **Details** tab:
 ### Compilation & Execution
 
 Screenshot of compiling and running `shm-producer` and `shm-consumer`:
+## Task 3: Shared Memory IPC
+
+### Compilation & Execution
+
+Screenshot of compiling and running `shm-producer` and `shm-consumer`:
 
 ![Task 3 - Compile & Run](screenshots/task3_compile_run.png)
 
 ### Output
 
 ```
-[Paste the content of result-shm-ipc.txt here]
+Consumer: reading from shared memory 'OS-Theary'
+Consumer: message = "Hello, this is shared memory IPC!"
+Consumer: shared memory unlinked.
 ```
 
 ### Questions
 
 1. **What does `shm_open()` do? How is it different from `open()`?**
 
-   > [Your answer]
+   > `shm_open()` creates or opens a POSIX shared memory object identified by a name, returning a file descriptor that can be used with `mmap()`. The key difference from `open()` is that `shm_open()` creates an object in **memory** (typically under `/dev/shm`), not on disk. It is designed specifically for IPC — the shared memory object has no filesystem path like a regular file, and its contents exist only in RAM, making access much faster than reading from disk.
 
 2. **What does `mmap()` do? Why is shared memory faster than other IPC methods?**
 
-   > [Your answer]
+   > `mmap()` maps a shared memory object (or file) directly into the process's virtual address space, so the process can read and write it like a normal pointer. Shared memory is the fastest IPC method because data does not need to be **copied** between processes — both processes access the exact same physical memory region directly. Other IPC methods like pipes or message queues require the OS to copy data from one process's buffer to another, adding overhead.
 
 3. **Why must the shared memory name match between producer and consumer?**
 
-   > [Your answer]
+   > The name is how the OS identifies which shared memory object to open. Both processes must use the exact same name so they connect to the same region of physical memory. If the names differ, `shm_open()` in the consumer will either open a different object or fail entirely with "No such file or directory", and the consumer will not see the data the producer wrote.
 
 4. **What does `shm_unlink()` do? What would happen if the consumer didn't call it?**
 
-   > [Your answer]
+   > `shm_unlink()` removes the shared memory object from the system so the OS can free the memory. If the consumer does not call it, the shared memory object **persists** in `/dev/shm` even after both programs exit — it stays allocated until the system reboots or it is manually removed. This wastes memory and can cause a name conflict error the next time the producer tries to create a shared memory object with the same name.
 
 5. **If the consumer runs before the producer, what happens? Try it and describe the error.**
 
-   > [Your answer]
+   > If the consumer runs before the producer, `shm_open()` in the consumer fails because the shared memory object does not exist yet — the producer is the one that creates it with `O_CREAT`. The consumer only opens it with `O_RDONLY`. The error output is:
+   > ```
+   > shm_open: No such file or directory
+   > Hint: Did you run shm-producer first?
+   > ```
 
 ---
 
@@ -180,30 +191,36 @@ Screenshot of compiling and running `sender` and `receiver`:
 ### Output
 
 ```
-[Paste the content of result-mq-ipc.txt here]
+Receiver: message received from queue '/queue-Theary'
+Receiver: message = "Hello from sender! This is message queue IPC."
+Receiver: queue unlinked.
 ```
 
 ### Questions
 
 1. **How is a message queue different from shared memory? When would you use one over the other?**
 
-   > [Your answer]
+   > Shared memory gives processes direct access to the same memory region — data is read and written like a normal variable, making it very fast but requiring manual synchronization. A message queue sends discrete, structured messages through the OS in FIFO order, with built-in synchronization. Use **shared memory** when you need maximum speed and are transferring large amounts of data continuously. Use **message queues** when you need structured, ordered, independent messages between processes and don't want to manage synchronization yourself.
 
 2. **Why does the queue name in `common.h` need to start with `/`?**
 
-   > [Your answer]
+   > POSIX message queues are identified by a name in the filesystem namespace. The leading `/` is required by the POSIX standard — it tells the OS this is a system-level named object, similar to how shared memory names work. Without the `/`, `mq_open()` will fail with an error.
 
 3. **What does `mq_unlink()` do? What happens if neither the sender nor receiver calls it?**
 
-   > [Your answer]
+   > `mq_unlink()` removes the message queue from the system. If neither the sender nor receiver calls it, the queue **persists in the OS** even after both programs exit — it stays in memory until the system reboots or someone manually removes it. This wastes kernel resources and can cause errors the next time you try to create a queue with the same name.
 
 4. **What happens if you run the receiver before the sender?**
 
-   > [Your answer]
+   > The receiver will fail at `mq_open()` because the queue does not exist yet — only the sender creates it with `O_CREAT`. The receiver opens it with `O_RDONLY` only, so it cannot create the queue itself. You will see an error like:
+   > ```
+   > mq_open: No such file or directory
+   > Hint: Did you run sender first?
+   > ```
 
 5. **Can multiple senders send to the same queue? Can multiple receivers read from the same queue?**
 
-   > [Your answer]
+   > Yes to both. Multiple senders can all call `mq_send()` on the same queue — their messages will be stored in FIFO order. Multiple receivers can also call `mq_receive()` on the same queue, but each message is delivered to **only one receiver** — whichever one reads it first. Messages are not broadcast to all receivers, so if you need all receivers to get every message, a different IPC mechanism like shared memory or signals would be more appropriate.
 
 ---
 
@@ -211,4 +228,4 @@ Screenshot of compiling and running `sender` and `receiver`:
 
 What did you learn from this activity? What was the most interesting difference between Linux and Windows process creation? Which IPC method do you prefer and why?
 
-> [Write your reflection here]
+> This activity gave me hands-on experience with how operating systems manage processes and enable communication between them. I learned how `fork()` and `exec()` work together on Linux to create child processes, and how Windows takes a completely different approach with `CreateProcess()` doing everything in a single step. The most interesting difference was that Linux copies the entire parent process first with `fork()` before replacing it with a new program, while Windows skips that step entirely — it felt counterintuitive at first but makes sense for efficiency. Between the two IPC methods, I prefer **message queues** because they handle synchronization automatically and deliver structured, ordered messages without needing to manage memory manually like shared memory does. Shared memory is faster, but message queues feel safer and easier to reason about when building programs that communicate between processes.

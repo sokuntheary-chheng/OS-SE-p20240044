@@ -1,0 +1,20 @@
+ 1708  git commit -m "Add activity2 task1 and task2"
+ 1709  git push origin main
+ 1710  cd ~/OS-SE-p20240044/os-class-activities-p20240044/activity2/task3_shm
+ 1711  cd ~/OS-SE-p20240044/os-class-activities-p20240044/activity2
+ 1712  mkdir task3
+ 1713  cd task3
+ 1714  cd ..
+ 1715  mv task3 task3_shm
+ 1716  ls
+ 1717  cd task3_shm
+ 1718  nano shm-producer.c
+ 1719  cd ..
+ 1720  cd task3_shm
+ 1721  nano shm-consumer.c
+ 1722  gcc -o shm-producer shm-producer.c -lrt
+ 1723  gcc -o shm-consumer shm-consumer.c -lrt
+ 1724  ./shm-producer
+ 1725  ./shm-consumer > result-shm-ipc.txt
+ 1726  cat result-shm-ipc.txt
+ 1727  history | tail -n 20 > command_used_shm.txt
