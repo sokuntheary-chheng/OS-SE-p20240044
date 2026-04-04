@@ -1,0 +1,131 @@
+=== Task 4: Process Management ===
+--- Current processes (your user) ---
+    PID TTY          TIME CMD
+   2608 ?        00:00:00 systemd
+   2609 ?        00:00:00 (sd-pam)
+   2633 pts/1    00:00:00 bash
+   2655 pts/0    00:00:00 sh
+   2656 pts/0    00:00:00 sh
+   2666 pts/0    00:00:00 node
+   2689 pts/0    00:00:00 sh
+  11825 pts/2    00:00:00 bash
+  72138 pts/2    00:00:00 ps
+--- All processes (snapshot) ---
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.1  21864 11904 ?        Ss   Apr02   0:05 /sbin/init
+root           2  0.0  0.0   3120  1920 ?        Sl   Apr02   0:00 /init
+root           7  0.1  0.0   4296  2764 ?        Sl   Apr02   1:36 plan9 --control-socket 7 --log-level 4 --server-fd 8 --pipe-fd 10 --log-truncate
+root         479  0.0  0.2  66752 20664 ?        S<s  Apr02   0:05 /usr/lib/systemd/systemd-journald
+root         673  0.0  0.0  25276  6144 ?        Ss   Apr02   0:12 /usr/lib/systemd/systemd-udevd
+systemd+     826  0.0  0.1  21460 12800 ?        Ss   Apr02   0:00 /usr/lib/systemd/systemd-resolved
+systemd+     888  0.0  0.0  91028  7680 ?        Ssl  Apr02   0:02 /usr/lib/systemd/systemd-timesyncd
+root        1083  0.0  0.0   4236  2432 ?        Ss   Apr02   0:00 /usr/sbin/cron -f -P
+message+    1089  0.0  0.0   9592  4608 ?        Ss   Apr02   0:02 @dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+root        1141  0.0  0.1  17972  8064 ?        Ss   Apr02   0:00 /usr/lib/systemd/systemd-logind
+root        1156  0.0  0.1 2052176 14244 ?       Ssl  Apr02   0:04 /usr/libexec/wsl-pro-service -vv
+root        1169  0.0  0.0   3160  1920 hvc0     Ss+  Apr02   0:00 /sbin/agetty -o -p -- \u --noclear --keep-baud - 115200,38400,9600 vt220
+syslog      1182  0.0  0.0 222508  5248 ?        Ssl  Apr02   0:01 /usr/sbin/rsyslogd -n -iNONE
+root        1191  0.0  0.0   3116  1792 tty1     Ss+  Apr02   0:00 /sbin/agetty -o -p -- \u --noclear - linux
+root        1220  0.0  0.2 107020 22144 ?        Ssl  Apr02   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+root        2482  0.0  0.0   6688  4352 pts/1    Ss   Apr02   0:00 /bin/login -f
+sparkli+    2608  0.0  0.1  20316 11136 ?        Ss   Apr02   0:00 /usr/lib/systemd/systemd --user
+sparkli+    2609  0.0  0.0  21160  3520 ?        S    Apr02   0:00 (sd-pam)
+sparkli+    2633  0.0  0.0   6072  5120 pts/1    S+   Apr02   0:00 -bash
+--- Process tree ---
+UID          PID    PPID  C STIME TTY          TIME CMD
+root           1       0  0 Apr02 ?        00:00:05 /sbin/init
+root           2       1  0 Apr02 ?        00:00:00 /init
+root           7       2  0 Apr02 ?        00:01:36  \_ plan9 --control-socket 7 --log-level 4 --server-fd 8 --pipe-fd 10 --log-truncate
+root        2482       2  0 Apr02 pts/1    00:00:00  \_ /bin/login -f
+sparkli+    2633    2482  0 Apr02 pts/1    00:00:00  |   \_ -bash
+root        2653       2  0 Apr02 ?        00:00:00  \_ /init
+root        2654    2653  0 Apr02 ?        00:00:00  |   \_ /init
+sparkli+    2655    2654  0 Apr02 pts/0    00:00:00  |       \_ /bin/sh -c cd '/home/sparkling/OS-SE-p20240044' && /bin/sh
+sparkli+    2656    2655  0 Apr02 pts/0    00:00:00  |           \_ /bin/sh
+sparkli+    2666    2656  0 Apr02 pts/0    00:00:00  |               \_ /home/sparkling/.vscode-server/bin/cfbea10c5ffb233ea9177d34726e6056e89913dc/node /home/sparkling/.vscode-remote-containers/dist/vscode-remote-containers-server-0.447.0.js
+sparkli+    2689    2666  0 Apr02 pts/0    00:00:00  |                   \_ /bin/sh
+root       11821       2  0 01:46 ?        00:00:00  \_ /init
+root       11823   11821  0 01:46 ?        00:00:01      \_ /init
+sparkli+   11825   11823  0 01:46 pts/2    00:00:00          \_ -bash
+sparkli+   72155   11825  0 11:45 pts/2    00:00:00              \_ ps -ef --forest
+sparkli+   72156   11825  0 11:45 pts/2    00:00:00              \_ head -n 30
+root         479       1  0 Apr02 ?        00:00:05 /usr/lib/systemd/systemd-journald
+root         673       1  0 Apr02 ?        00:00:12 /usr/lib/systemd/systemd-udevd
+systemd+     826       1  0 Apr02 ?        00:00:00 /usr/lib/systemd/systemd-resolved
+systemd+     888       1  0 Apr02 ?        00:00:02 /usr/lib/systemd/systemd-timesyncd
+root        1083       1  0 Apr02 ?        00:00:00 /usr/sbin/cron -f -P
+message+    1089       1  0 Apr02 ?        00:00:02 @dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+root        1141       1  0 Apr02 ?        00:00:00 /usr/lib/systemd/systemd-logind
+root        1156       1  0 Apr02 ?        00:00:04 /usr/libexec/wsl-pro-service -vv
+root        1169       1  0 Apr02 hvc0     00:00:00 /sbin/agetty -o -p -- \u --noclear --keep-baud - 115200,38400,9600 vt220
+syslog      1182       1  0 Apr02 ?        00:00:01 /usr/sbin/rsyslogd -n -iNONE
+root        1191       1  0 Apr02 tty1     00:00:00 /sbin/agetty -o -p -- \u --noclear - linux
+root        1220       1  0 Apr02 ?        00:00:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+sparkli+    2608       1  0 Apr02 ?        00:00:00 /usr/lib/systemd/systemd --user
+--- Top 10 CPU consumers (via ps, not top) ---
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           7  0.1  0.0   4184  2844 ?        Sl   Apr02   1:39 plan9 --control-socket 7 --log-level 4 --server-fd 8 --pipe-fd 10 --log-truncate
+root         673  0.0  0.0  25276  6144 ?        Ss   Apr02   0:12 /usr/lib/systemd/systemd-udevd
+root         479  0.0  0.2  66752 20664 ?        S<s  Apr02   0:05 /usr/lib/systemd/systemd-journald
+root           1  0.0  0.1  21864 11904 ?        Ss   Apr02   0:05 /sbin/init
+root        1156  0.0  0.1 2052176 14372 ?       Ssl  Apr02   0:04 /usr/libexec/wsl-pro-service -vv
+message+    1089  0.0  0.0   9592  4608 ?        Ss   Apr02   0:02 @dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+systemd+     888  0.0  0.0  91028  7680 ?        Ssl  Apr02   0:02 /usr/lib/systemd/systemd-timesyncd
+root       11823  0.0  0.0   3140  1164 ?        S    01:46   0:01 /init
+sparkli+   11825  0.0  0.0   6204  5248 pts/2    Ss   01:46   0:00 -bash
+syslog      1182  0.0  0.0 222508  5248 ?        Ssl  Apr02   0:01 /usr/sbin/rsyslogd -n -iNONE
+--- Top 10 memory consumers ---
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+sparkli+    2666  0.0  0.6 1015188 51864 pts/0   Sl+  Apr02   0:00 /home/sparkling/.vscode-server/bin/cfbea10c5ffb233ea9177d34726e6056e89913dc/node /home/sparkling/.vscode-remote-containers/dist/vscode-remote-containers-server-0.447.0.js
+root        1220  0.0  0.2 107020 22144 ?        Ssl  Apr02   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+root         479  0.0  0.2  66752 20664 ?        S<s  Apr02   0:05 /usr/lib/systemd/systemd-journald
+root        1156  0.0  0.1 2052176 14372 ?       Ssl  Apr02   0:04 /usr/libexec/wsl-pro-service -vv
+systemd+     826  0.0  0.1  21460 12800 ?        Ss   Apr02   0:00 /usr/lib/systemd/systemd-resolved
+root           1  0.0  0.1  21864 11904 ?        Ss   Apr02   0:05 /sbin/init
+sparkli+    2608  0.0  0.1  20316 11136 ?        Ss   Apr02   0:00 /usr/lib/systemd/systemd --user
+root        1141  0.0  0.1  17972  8064 ?        Ss   Apr02   0:01 /usr/lib/systemd/systemd-logind
+systemd+     888  0.0  0.0  91028  7680 ?        Ssl  Apr02   0:02 /usr/lib/systemd/systemd-timesyncd
+polkitd    64898  0.0  0.0 308164  7680 ?        Ssl  09:14   0:00 /usr/lib/polkit-1/polkitd --no-debug
+--- Background jobs ---
+[1]  82508 Running                 sleep 300 &  (wd: ~/OS-SE-p20240044)
+[2]  82511 Running                 sleep 500 &  (wd: ~/OS-SE-p20240044)
+[3]- 82533 Running                 sleep 300 &
+[4]+ 82534 Running                 sleep 500 &
+--- After Ctrl+Z (stopped job) ---
+[4]- 82534 Done                    sleep 500
+[5]+ 82535 Stopped                 sleep 600
+[5]- 82535 Stopped                 sleep 600
+[6]+ 85307 Stopped                 sleep 600
+--- After bg (resumed in background) ---
+[5]+ 82535 Stopped                 sleep 600
+[6]- 85307 Running                 sleep 600 &
+--- After terminating all sleep jobs ---
+[5]+ 82535 Stopped                 sleep 600
+[5]+ 82535 Terminated              sleep 600
+Started sleep with PID: 87249
+--- Available signals ---
+ 1) SIGHUP	 2) SIGINT	 3) SIGQUIT	 4) SIGILL	 5) SIGTRAP
+ 6) SIGABRT	 7) SIGBUS	 8) SIGFPE	 9) SIGKILL	10) SIGUSR1
+11) SIGSEGV	12) SIGUSR2	13) SIGPIPE	14) SIGALRM	15) SIGTERM
+16) SIGSTKFLT	17) SIGCHLD	18) SIGCONT	19) SIGSTOP	20) SIGTSTP
+21) SIGTTIN	22) SIGTTOU	23) SIGURG	24) SIGXCPU	25) SIGXFSZ
+26) SIGVTALRM	27) SIGPROF	28) SIGWINCH	29) SIGIO	30) SIGPWR
+31) SIGSYS	34) SIGRTMIN	35) SIGRTMIN+1	36) SIGRTMIN+2	37) SIGRTMIN+3
+38) SIGRTMIN+4	39) SIGRTMIN+5	40) SIGRTMIN+6	41) SIGRTMIN+7	42) SIGRTMIN+8
+43) SIGRTMIN+9	44) SIGRTMIN+10	45) SIGRTMIN+11	46) SIGRTMIN+12	47) SIGRTMIN+13
+48) SIGRTMIN+14	49) SIGRTMIN+15	50) SIGRTMAX-14	51) SIGRTMAX-13	52) SIGRTMAX-12
+53) SIGRTMAX-11	54) SIGRTMAX-10	55) SIGRTMAX-9	56) SIGRTMAX-8	57) SIGRTMAX-7
+58) SIGRTMAX-6	59) SIGRTMAX-5	60) SIGRTMAX-4	61) SIGRTMAX-3	62) SIGRTMAX-2
+63) SIGRTMAX-1	64) SIGRTMAX	
+--- After SIGSTOP ---
+    PID STAT CMD
+  87249 T    sleep 1000
+--- After SIGCONT ---
+    PID STAT CMD
+  87249 S    sleep 1000
+--- After SIGTERM ---
+    PID STAT CMD
+--- nohup demo ---
+nohup sleep PID: 88214
+-rw------- 1 sparkling sparkling 0 Apr  3 12:50 nohup.out
+--- Challenge Process Management ---

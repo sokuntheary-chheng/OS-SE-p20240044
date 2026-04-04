@@ -1,0 +1,19 @@
+=== Task 5: Orphan & Zombie Processes ===
+--- Orphan process observation ---
+Child PID: 80290, Original PPID: 80288, New PPID after parent exit: 80289
+--- Zombie process observation ---
+Zombie PID: 102704, State: Z (zombie/defunct), Parent PID: 102703
+--- Zombie and Orphan Cleanup Notes ---
+Q: How are orphans cleaned up? A: When a parent process exits before its child, the kernel automatically re-parents the orphan to init (PID 1) or systemd. Init periodically calls wait() to clean up any orphaned children that finish.
+Q: How are zombies cleaned up? A: The parent must call wait() or waitpid() to read the child's exit status. Once the parent calls wait(), the kernel removes the zombie entry from the process table. If the parent never calls wait(), the zombie persists until the parent exits, then init cleans it up.
+Q: Can you kill a zombie with 'kill -9'? Why or why not? A: No. A zombie process is already dead and has no running code to receive or handle any signals. kill -9 (SIGKILL) only works on running processes. The zombie entry is just a record remaining in the process table waiting for its parent to call wait().
+--- Challenge Orphan & Zombie ---
+--- Challenge 5a: zombie_wait observation ---
+Zombie appeared while parent slept, disappeared after wait() was called.
+--- Challenge 5b: process tree with 3 children ---
+ 116499  104506 S     \_ ./three_children
+ 116501  116499 S     |   \_ ./three_children
+ 116502  116499 S     |   \_ ./three_children
+ 116503  116499 S     |   \_ ./three_children
+ 116504  104506 R+    \_ ps --forest -o pid,ppid,stat,cmd
+ 116505  104506 S+    \_ grep --color=auto -A8 three_children

@@ -1,0 +1,100 @@
+ 1478  echo "--- Requests per IP ---" >> task3_analysis.txt
+ 1479  awk '{print $1}' access.log | sort | uniq -c | sort -rn >> task3_analysis.txt
+ 1480  echo "--- Top requested URLs ---" >> task3_analysis.txt
+ 1481  awk '{print $7}' access.log | sort | uniq -c | sort -rn >> task3_analysis.txt
+ 1482  echo "--- Unique IP addresses ---" >> task3_analysis.txt
+ 1483  cut -d' ' -f1 access.log | sort -u >> task3_ananlysis.txt
+ 1484  echo "--- Status code summary ---" >> task3_analysis.txt
+ 1485  nano task3_analysis.txt
+ 1486  cut -d' ' -f1 access.log | sort -u >> task3_analysis.txt
+ 1487  rm task3_ananlysis.txt
+ 1488  echo "--- Status code summary ---" >> task3_analysis.txt
+ 1489  awk '{print $9}' access.log | sort | uniq -c | sort -rn  >> task3_analysis.txt
+ 1490  echo "--- Users with /bin/bash shell ---" >> task3_analysis.txt
+ 1491  grep "/bin/bash" /etc/passwd | cut -d: -f1 >> task3_analysis.txt
+ 1492  echo "--- Number of system users (UID < 1000) ---" >> task3_analysis.txt
+ 1493  nano task3_analysis.txt
+ 1494  awk -F: '$3 < 1000 {count++} END {print "System users:", count}' /etc/passwd >> task3_analysis.txt
+ 1495  echo "--- Number of regular users (UID >= 1000) ---" >> task3_analysis.txt
+ 1496  awk -F: '$3 >= 1000 {count++} END {print "Regular users:", count}' /etc/passwd >> task3_analysis.txt
+ 1497  echo "--- Challenge Data Analysis ---" >> task3_analysis.txt
+ 1498  echo "--- Challenge Data Analysis 3a: 403 requests (IP + URL) ---" >> task3_analysis.txt
+ 1499  grep '" 403 ' access.log | awk '{print $1, $7}' >> task3_analysis.txt
+ 1500  echo "--- Challenge Data Analysis 3b: shell usage summary ---" >> task3_analysis.txt
+ 1501  cut -d: -f7 /etc/passwd | sort | uniq -c | sort -rn >> task3_analysis.txt
+ 1502  echo "--- Challenge Data Analysis 3c: IP with most requests ---" >> task3_analysis.txt
+ 1503  cut -d' ' -f1 access.log | sort | uniq -c | sort -rn | head -n 1 >> task3_analysis.txt
+ 1504  echo "=== Task 4: Process Management ===" > task4_processes.txt
+ 1505  ps aux | head -n 15
+ 1506  echo "--- Current processes (your user) ---" >> task4_processes.txt
+ 1507  ps -u $USER >> task4_processes.txt
+ 1508  echo "--- All processes (snapshot) ---" >> task4_processes.txt
+ 1509  ps aux | head -n 20 >> task4_processes.txt
+ 1510  echo "--- Process tree ---" >> task4_processes.txt
+ 1511  ps -ef --forest | head -n 30 >> task4_processes.txt
+ 1512  top
+ 1513  echo "--- Top 10 CPU consumers (via ps, not top) ---" >> task4_processes.txt
+ 1514  ps aux --sort=-%cpu | head -n 11 >> task4_processes.txt
+ 1515  echo "--- Top 10 memory consumers ---" >> task4_processes.txt
+ 1516  ps aux --sort=-%mem | head -n 11 >> task4_processes.txt
+ 1517  htop
+ 1518  ls
+ 1519  cd os-lab-p20240044
+ 1520  cd lab4
+ 1521  ps -o pid,ppid,stat,cmd -p 97531
+ 1522  ps -o pid,ppid,stat,cmd -p 102704
+ 1523  ls
+ 1524  cd os-lab-p20240044
+ 1525  cd lab4
+ 1526  ps aux | grep -E 'Z|defunct'
+ 1527  ps -o pid,ppid,stat,cmd -p 104527
+ 1528  echo "--- Zombie process observation ---" >> task5_orphan_zombie.txt
+ 1529  echo "Zombie PID: 102704, State: Z (zombie/defunct), Parent PID: 102703" >> task5_orphan_zombie.txt
+ 1530  nano task5_orphan_zombie.txt
+ 1531  echo "--- Zombie and Orphan Cleanup Notes ---" >> task5_orphan_zombie.txt
+ 1532  echo "Q: How are orphans cleaned up? A: <YOUR ANSWER>" >> task5_orphan_zombie.txt
+ 1533  nano task5_orphan_zombie.txt
+ 1534  echo "Q: How are orphans cleaned up? A: When a parent process exits before its child, the kernel automatically re-parents the orphan to init (PID 1) or systemd. Init periodically calls wait() to clean up any orphaned children that finish." >> task5_orphan_zombie.txt
+ 1535  echo "Q: How are zombies cleaned up? A: The parent must call wait() or waitpid() to read the child's exit status. Once the parent calls wait(), the kernel removes the zombie entry from the process table. If the parent never calls wait(), the zombie persists until the parent exits, then init cleans it up." >> task5_orphan_zombie.txt
+ 1536  echo "Q: Can you kill a zombie with 'kill -9'? Why or why not? A: No. A zombie process is already dead and has no running code to receive or handle any signals. kill -9 (SIGKILL) only works on running processes. The zombie entry is just a record remaining in the process table waiting for its parent to call wait()." >> task5_orphan_zombie.txt
+ 1537  $ echo "--- Challenge Orphan & Zombie ---" >> task5_orphan_zombie.txt
+ 1538  echo "--- Challenge Orphan & Zombie ---" >> task5_orphan_zombie.txt
+ 1539  cat << 'EOF' > zombie_wait.c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
+
+int main() {
+    pid_t pid = fork();
+
+    if (pid < 0) { perror("fork"); exit(1); }
+
+    if (pid == 0) {
+        printf("Child (PID %d): Exiting now.\n", getpid());
+        exit(0);
+    }
+
+    /* Parent sleeps 10 seconds, THEN calls wait() */
+    printf("Parent (PID %d): Child is %d. Sleeping 10s before wait()...\n", getpid(), pid);
+    sleep(10);
+    wait(NULL);
+    printf("Parent: Called wait(). Zombie should be gone now.\n");
+    sleep(5);
+    return 0;
+}
+EOF
+
+ 1540  gcc -o zombie_wait zombie_wait.c
+ 1541  ./zombie_wait &
+ 1542  sleep 2 && ps --forest -o pid,ppid,stat,cmd | grep -A6 "three_children"
+ 1543  ./three_children & sleep 1 && ps --forest -o pid,ppid,stat,cmd | grep -A8 "three_children"
+ 1544  pkill three_children
+ 1545  pkill -f "sleep 30"
+ 1546  nano task5_orphan_zombie.txt
+ 1547  ./three_children & sleep 1 && ps --forest -o pid,ppid,stat,cmd | grep -A8 "three_children" >> task5_orphan_zombie.txt
+ 1548  nano task5_orphan_zombie.txt
+ 1549  ./three_children & sleep 1 && ps --forest -o pid,ppid,stat,cmd | grep -A8 "three_children"
+ 1550  tree
+ 1551  history | tail -n 100
+ 1552  history | tail -n 100 >> history.txt

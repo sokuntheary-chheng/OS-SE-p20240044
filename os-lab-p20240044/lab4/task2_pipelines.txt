@@ -1,0 +1,44 @@
+
+--- Challenge Pipelines 2c: count of .conf files in /etc ---
+132
+--- Number of entries in /etc ---
+169
+--- Count of each name ---
+      3 apple
+      2 banana
+      1 zebra
+      1 cherry
+--- First 5 users in /etc/passwd ---
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+--- Last 3 users in /etc/passwd ---
+landscape:x:104:105::/var/lib/landscape:/usr/sbin/nologin
+polkitd:x:990:990:User for polkitd:/:/usr/sbin/nologin
+sparkling:x:1000:1000:,,,:/home/sparkling:/bin/bash
+--- Top 5 largest directories under /usr ---
+4.6G	/usr/lib
+286M	/usr/share
+167M	/usr/bin
+73M	/usr/libexec
+13M	/usr/include
+--- Pipeline with tee ---
+20
+(also saved to etc_snapshot.txt)
+--- Uppercase to lowercase ---
+hello world from techcorp
+--- Remove duplicate spaces ---
+too many spaces here
+--- Challenge Pipelines ---
+--- Challenge Pipelines 2a: directory count in /etc ---
+88
+--- Challenge Pipelines 2b: last 5 usernames alphabetically ---
+systemd-resolve
+systemd-timesync
+uucp
+uuidd
+www-data
+--- Challenge Pipelines 2c: count of .conf files in /etc ---
+132
