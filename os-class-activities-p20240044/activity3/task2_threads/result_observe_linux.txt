@@ -1,0 +1,11 @@
+sparkli+  122733   91017  122733  0    5 20:24 pts/2    00:00:00 ./threads_observe
+sparkli+  122733   91017  122734  0    5 20:24 pts/2    00:00:00 ./threads_observe
+sparkli+  122733   91017  122735  0    5 20:24 pts/2    00:00:00 ./threads_observe
+sparkli+  122733   91017  122736  0    5 20:24 pts/2    00:00:00 ./threads_observe
+sparkli+  122733   91017  122737  0    5 20:24 pts/2    00:00:00 ./threads_observe
+--- ps -T output ---
+ 122733  122733 pts/2    00:00:00 threads_observe
+ 122733  122734 pts/2    00:00:00 threads_observe
+ 122733  122735 pts/2    00:00:00 threads_observe
+ 122733  122736 pts/2    00:00:00 threads_observe
+ 122733  122737 pts/2    00:00:00 threads_observe
