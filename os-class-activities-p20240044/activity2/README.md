@@ -136,11 +136,6 @@ Screenshot showing PID and Parent PID in the **Details** tab:
 ### Compilation & Execution
 
 Screenshot of compiling and running `shm-producer` and `shm-consumer`:
-## Task 3: Shared Memory IPC
-
-### Compilation & Execution
-
-Screenshot of compiling and running `shm-producer` and `shm-consumer`:
 
 ![Task 3 - Compile & Run](screenshots/task3_compile_run.png)
 

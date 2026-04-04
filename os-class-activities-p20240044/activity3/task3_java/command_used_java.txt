@@ -1,0 +1,30 @@
+ 1809  cat result_threads_mutex.txt
+ 1810  $ history | tail -n 20 > command_used_threads.txt
+ 1811  history | tail -n 20 > command_used_threads.txt
+ 1812  nano task3_java
+ 1813  javac ThreadDemo.java
+ 1814  rm task3_java
+ 1815  mkdir task3_java
+ 1816  cd task3_java
+ 1817  rm task3_java
+ 1818  cd ..
+ 1819  rm task3_java
+ 1820  ls
+ 1821  rm -rf task3_java
+ 1822  cd ..
+ 1823  ls
+ 1824  mkdir task3_java
+ 1825  cd task3_java
+ 1826  nano ThreadDemo.java
+ 1827  javac ThreadDemo.java
+ 1828  java ThreadDemo > result_thread_demo.txt 2>&1
+ 1829  cat result_thread_demo.txt
+ 1830  nano RunnableDemo.java
+ 1831  javac RunnableDemo.java
+ 1832  java RunnableDemo > result_runnable_demo.txt 2>&1
+ 1833  cat result_runnable_demo.txt
+ 1834  nano PoolDemo.java
+ 1835  javac PoolDemo.java
+ 1836  java PoolDemo > result_pool_demo.txt 2>&1
+ 1837  cat result_pool_demo.txt
+ 1838  history | tail -n 30 > command_used_java.txt

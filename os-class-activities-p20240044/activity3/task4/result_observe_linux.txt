@@ -1,0 +1,2 @@
+sparkli+  123860   95649  123860  0    1 20:26 pts/3    00:00:00 grep --color=auto threads_observe
+    PID    SPID TTY          TIME CMD

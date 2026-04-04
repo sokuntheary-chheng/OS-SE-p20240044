@@ -1,0 +1,20 @@
+ 1780  ssh ssh2.rathpisey.site
+ 1781  sudo apt update
+ 1782  sudo apt install build-essential default-jdk -y
+ 1783  gcc --version
+ 1784  java --version
+ 1785  javac --version
+ 1786  ls
+ 1787  cd os-class-activities-p20240044
+ 1788  mdkir task1_socket
+ 1789  ls
+ 1790  cd activity3
+ 1791  mkdir task1_socket
+ 1792  nano server.c
+ 1793  nano client.c
+ 1794  gcc -o server server.c
+ 1795  gcc -o client client.c
+ 1796  ls
+ 1797  cd task1_socket
+ 1798  ./client
+ 1799  history | tail -n 20 > command_used_socket.txt
