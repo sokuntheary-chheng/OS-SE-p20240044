@@ -1,7 +1,7 @@
-dev_alice:x:1014:1014::/home/dev_alice:/bin/bash
+dev_alice:x:1014:1014:Alice Developer:/home/dev_alice:/bin/bash
 dev_bob:x:1015:1015::/home/dev_bob:/bin/bash
-total 68
-drwxr-xr-x 17 root          root          4096 May 20 08:52 .
+total 72
+drwxr-xr-x 18 root          root          4096 May 20 09:07 .
 drwxr-xr-x 30 root          root          4096 May 20 08:40 ..
 drwxr-x---  2 Chheng_Kimter Chheng_Kimter 4096 May 12 14:13 Chheng_Kimter
 drwxr-x---  3 Sao_Daliinaco Sao_Daliinaco 4096 May 13 22:33 Sao_Daliinaco
@@ -18,3 +18,4 @@ drwxr-x---  2 sales_admin   Sales         4096 May 14 08:06 sales_admin
 drwxr-x---  2 sales_user1   Sales         4096 May 14 08:12 sales_user1
 drwxr-x---  2 sales_user2   Sales         4096 May 14 08:12 sales_user2
 drwxr-x--- 15 sparkling     sparkling     4096 May 19 15:24 sparkling
+drwxr-x---  2 temp_user     temp_user     4096 May 20 09:07 temp_user

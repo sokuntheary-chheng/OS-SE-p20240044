@@ -1,2 +1,0 @@
-drwxrws--T 2 root devteam 4096 May 20 09:13 /opt/techcorp/devproject
--rwxrwxrwx 1 sparkling sparkling 16184 May 20 09:17 whoami_suid
