@@ -1,0 +1,4 @@
+drwxrws--T 2 root devteam 4096 May 20 09:59 /opt/techcorp/dropbox
+total 0
+-rw-rw-r-- 1 dev_alice devteam 0 May 20 09:58 alice_drop.txt
+-rw-rw-r-- 1 dev_bob   devteam 0 May 20 09:59 bob_drop.txt
