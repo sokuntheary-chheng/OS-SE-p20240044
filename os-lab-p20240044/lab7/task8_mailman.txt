@@ -1,0 +1,9 @@
+=== mailman output ===
+Sent message to sparkling
+Messages sent: 1
+=== my inbox ===
+total 4
+-rw-r--r-- 1 sparkling sparkling 107 May 22 05:10 message_from_sparkling.txt
+-rw-r--r-- 1 nobody    nogroup     0 May 21 18:33 test_from_nobody.txt
+=== messages I received ===
+Hello sparkling, I am an automated bot written by sparkling. I successfully read your secret word: kernel.

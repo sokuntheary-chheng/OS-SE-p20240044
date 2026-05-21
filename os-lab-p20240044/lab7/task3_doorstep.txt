@@ -1,0 +1,6 @@
+========================================
+Welcome, sparkling
+Users currently logged in: 1
+Server uptime: up 7 hours, 13 minutes
+Random tech quote: Automate the boring stuff.
+========================================

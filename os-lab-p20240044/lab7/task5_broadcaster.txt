@@ -1,0 +1,6 @@
+=== broadcaster script ===
+-rwxr-xr-x 1 sparkling sparkling 331 May 21 18:36 /home/sparkling/bin/broadcaster
+=== outbox permissions ===
+drwxr-xr-x 2 sparkling sparkling 4096 May 21 18:37 /home/sparkling/public_outbox
+=== secret.txt ===
+kernel - 2026-05-21 18:37:04
