@@ -1,0 +1,7 @@
+=== guestbook permissions ===
+-rw------- 1 sparkling sparkling 71 May 22 05:04 /home/sparkling/guestbook.txt
+=== sign_book permissions ===
+-rwsr-xr-x 1 sparkling sparkling 16096 May 22 05:02 /home/sparkling/bin/sign_book
+=== guestbook contents ===
+Visitor signed: Hello from sparkling
+Visitor signed: Hello from nobody

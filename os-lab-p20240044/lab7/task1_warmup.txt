@@ -1,0 +1,5 @@
+=== warmup permissions ===
+-rwxr-xr-x 1 sparkling sparkling 76 May 21 17:46 /home/sparkling/bin/warmup
+=== warmup output ===
+Hello from my first script! My current directory is:
+/home/sparkling

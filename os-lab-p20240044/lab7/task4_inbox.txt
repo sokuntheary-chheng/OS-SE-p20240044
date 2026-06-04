@@ -1,0 +1,7 @@
+=== inbox permissions ===
+drwx-wx-wx 2 sparkling sparkling 4096 May 21 18:33 /home/sparkling/public_inbox
+=== classmate ls attempt (should fail) ===
+ls: cannot open directory '/home/sparkling/public_inbox': Permission denied
+=== inbox files as owner ===
+total 0
+-rw-r--r-- 1 nobody nogroup 0 May 21 18:33 test_from_nobody.txt
