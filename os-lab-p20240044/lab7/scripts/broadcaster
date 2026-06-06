@@ -1,5 +1,4 @@
 #!/bin/bash
-
 secrets=("kernel" "mutex" "scheduler" "filesystem" "semaphore")
 secret=${secrets[$RANDOM % ${#secrets[@]}]}
 current_time=$(date +"%Y-%m-%d %H:%M:%S")

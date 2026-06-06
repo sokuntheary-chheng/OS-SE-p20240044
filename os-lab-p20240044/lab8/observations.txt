@@ -1,0 +1,17 @@
+Run 1 final inventory: 86
+Run 2 final inventory: 86
+Run 3 final inventory: 86
+Run 4 final inventory: 86
+Run 5 final inventory: 90
+Run 6 final inventory: 88
+
+Explanation:
+The inventory values are inconsistent across runs because of a TOC-TOU
+(Time-of-Check to Time-of-Use) race condition. All 50 bot processes launched
+by bot_swarm run concurrently without any mutex. The expected final inventory
+should be 0 because 50 bots each buy 2 widgets (50 x 2 = 100). Instead we get
+values like 86, 90, and 88 because multiple processes read the same inventory
+value at the same time, each believing there is enough stock. They all calculate
+a new value independently and the last process to write wins, overwriting all
+earlier writes. The final value depends entirely on OS scheduling order, which
+is why it changes between runs.

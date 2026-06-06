@@ -1,0 +1,20 @@
+#!/bin/bash
+
+script_name="$(basename "$0")"
+
+for file in *; do
+    [ -f "$file" ] || continue
+    [ "$file" = "$script_name" ] && continue
+
+    ext="${file##*.}"
+
+    if [ "$ext" = "$file" ]; then
+        continue
+    fi
+
+    mkdir -p "$ext"
+    mv "$file" "$ext/"
+    echo "Moved $file -> $ext/"
+done
+
+echo "Cleanup complete."

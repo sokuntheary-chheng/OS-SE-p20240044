@@ -1,0 +1,21 @@
+=== public api permissions ===
+drwxr-x--x 13 se-chheng-sokuntheary se-chheng-sokuntheary 4096 Jun  6 15:35 /home/se-chheng-sokuntheary
+drwxr-xr-x  2 se-chheng-sokuntheary se-chheng-sokuntheary 4096 Jun  6 15:35 /home/se-chheng-sokuntheary/public_api
+total 12
+-rwxrwxr-x 1 se-chheng-sokuntheary se-chheng-sokuntheary 1151 Jun  6 15:35 buy_widget
+-rw-rw-rw- 1 se-chheng-sokuntheary se-chheng-sokuntheary    0 Jun  6 15:42 inventory.lock
+-rw-rw-rw- 1 se-chheng-sokuntheary se-chheng-sokuntheary    2 Jun  6 15:43 inventory.txt
+-rw-rw-rw- 1 se-chheng-sokuntheary se-chheng-sokuntheary 3541 Jun  6 15:43 sales.log
+=== inventory ===
+0
+=== red team sales evidence ===
+[p20240044] [SUCCESS] RedTeam_se-pich-chanvatanak_33 bought 2 widgets.
+[p20240044] [SUCCESS] RedTeam_se-pich-chanvatanak_36 bought 2 widgets.
+[p20240044] [SUCCESS] RedTeam_se-pich-chanvatanak_35 bought 2 widgets.
+[p20240044] [SUCCESS] RedTeam_se-pich-chanvatanak_47 bought 2 widgets.
+[p20240044] [SUCCESS] RedTeam_se-pich-chanvatanak_46 bought 2 widgets.
+[p20240044] [SUCCESS] RedTeam_se-pich-chanvatanak_49 bought 2 widgets.
+[p20240044] [SUCCESS] RedTeam_se-pich-chanvatanak_45 bought 2 widgets.
+[p20240044] [SUCCESS] RedTeam_se-pich-chanvatanak_50 bought 2 widgets.
+[p20240044] [SUCCESS] RedTeam_se-pich-chanvatanak_39 bought 2 widgets.
+[p20240044] [SUCCESS] RedTeam_se-pich-chanvatanak_48 bought 2 widgets.

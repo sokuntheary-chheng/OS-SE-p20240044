@@ -1,6 +1,6 @@
 ========================================
-Welcome, sparkling
-Users currently logged in: 1
-Server uptime: up 7 hours, 13 minutes
-Random tech quote: Automate the boring stuff.
+Welcome, se-chheng-sokuntheary
+Users currently logged in: 22
+Server uptime: up 21 hours, 55 minutes
+Random tech quote: There is no place like 127.0.0.1.
 ========================================

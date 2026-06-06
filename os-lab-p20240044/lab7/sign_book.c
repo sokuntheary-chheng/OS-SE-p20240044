@@ -4,13 +4,13 @@ int main(int argc, char *argv[]) {
 
     if (argc != 2) {
 
-        printf("Usage: sign_book 'Chheng Sokuntheary'\n");
+        printf("Usage: sign_book 'se-chheng-sokuntheary'\n");
 
         return 1;
 
     }
 
-    FILE *file = fopen("/home/sparkling/guestbook.txt", "a");
+    FILE *file = fopen("/home/se-chheng-sokuntheary/guestbook.txt", "a");
 
     if (file == NULL) {
 

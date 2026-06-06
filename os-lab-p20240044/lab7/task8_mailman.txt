@@ -1,9 +1,16 @@
 === mailman output ===
-Sent message to sparkling
-Messages sent: 1
+Sent message to se-chea-seavhong
+Sent message to se-chheng-kimter
+Sent message to se-chheng-sokuntheary
+Messages sent: 3
 === my inbox ===
-total 4
--rw-r--r-- 1 sparkling sparkling 107 May 22 05:10 message_from_sparkling.txt
--rw-r--r-- 1 nobody    nogroup     0 May 21 18:33 test_from_nobody.txt
+total 16
+-rw-rw-r-- 1 se-chheng-sokuntheary se-chheng-sokuntheary 134 May 26 14:44 message_from_se-chheng-sokuntheary.txt
+-rw-rw-r-- 1 se-kong-sophanha      se-kong-sophanha      129 May 26 14:44 message_from_se-kong-sophanha.txt
+-rw-rw-r-- 1 se-mi-sorakmony       se-mi-sorakmony       128 May 26 14:37 message_from_se-mi-sorakmony.txt
+-rw-rw-r-- 1 se-pav-ratana         se-pav-ratana         126 May 26 14:38 message_from_se-pav-ratana.txt
 === messages I received ===
-Hello sparkling, I am an automated bot written by sparkling. I successfully read your secret word: kernel.
+Hello se-chheng-sokuntheary, I am an automated bot written by se-chheng-sokuntheary. I successfully read your secret word: scheduler.
+Hello se-chheng-sokuntheary, I am an automated bot written by se-kong-sophanha. I successfully read your secret word: scheduler.
+Hello se-chheng-sokuntheary, I am an automated bot written by se-mi-sorakmony. I successfully read your secret word: scheduler.
+Hello se-chheng-sokuntheary, I am an automated bot written by se-pav-ratana. I successfully read your secret word: scheduler.

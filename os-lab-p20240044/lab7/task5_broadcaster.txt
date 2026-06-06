@@ -1,6 +1,6 @@
 === broadcaster script ===
--rwxr-xr-x 1 sparkling sparkling 331 May 21 18:36 /home/sparkling/bin/broadcaster
+-rwxrwxr-x 1 se-chheng-sokuntheary se-chheng-sokuntheary 330 May 26 14:28 /home/se-chheng-sokuntheary/bin/broadcaster
 === outbox permissions ===
-drwxr-xr-x 2 sparkling sparkling 4096 May 21 18:37 /home/sparkling/public_outbox
+drwxr-xr-x 2 se-chheng-sokuntheary se-chheng-sokuntheary 4096 May 26 14:28 /home/se-chheng-sokuntheary/public_outbox
 === secret.txt ===
-kernel - 2026-05-21 18:37:04
+scheduler - 2026-05-26 14:28:41

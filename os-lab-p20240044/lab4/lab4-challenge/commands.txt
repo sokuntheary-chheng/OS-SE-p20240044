@@ -1,0 +1,5 @@
+ls ~/lab4-challenge/
+cat access.log
+awk '{print $1}' access.log | sort | uniq -c | sort -rn
+grep "10.44.18.126" access.log | grep " 403 "
+echo "10.44.18.126|/secret/report|6" > ~/lab4-challenge/final_answer.txt

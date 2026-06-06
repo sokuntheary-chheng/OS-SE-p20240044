@@ -1,0 +1,23 @@
+#!/bin/bash
+
+read -r -p "Drop zone folder name: " folder
+
+if [ -z "$folder" ]; then
+    echo "Error: folder name cannot be empty."
+    exit 1
+fi
+
+target="$HOME/$folder"
+
+mkdir -p "$target"
+
+if [ $? -ne 0 ]; then
+    echo "Error: could not create $target"
+    exit 2
+fi
+
+chmod o+wx "$target"
+chmod +t "$target"
+
+echo "Drop zone created: $target"
+ls -ld "$target"

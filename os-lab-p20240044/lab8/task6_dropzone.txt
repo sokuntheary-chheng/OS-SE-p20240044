@@ -1,0 +1,6 @@
+=== drop zone permissions ===
+drwxrwxrwt 2 se-chheng-sokuntheary se-chheng-sokuntheary 4096 Jun  6 15:51 /home/se-chheng-sokuntheary/vendor_reports
+=== drop zone files ===
+total 8
+-rw-rw-r-- 1 se-chheng-sokuntheary se-chheng-sokuntheary 27 Jun  6 15:50 my_rules.txt
+-rw-rw-r-- 1 se-pich-chanvatanak   se-pich-chanvatanak   15 Jun  6 15:51 partner_report.txt

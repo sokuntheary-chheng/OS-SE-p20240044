@@ -1,7 +1,7 @@
 === PATH ===
-/home/sparkling/bin:/home/sparkling/bin:/home/sparkling/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Users/U-ser/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand:/mnt/c/Users/U-ser/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli:/mnt/c/Users/U-ser/AppData/Local/Programs/Microsoft VS Code:/mnt/c/Program Files/Eclipse Adoptium/jdk-17.0.19.10-hotspot/bin:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Program Files/Java/jdk-25/bin:/mnt/d/apache-maven-3.9.11-bin/apache-maven-3.9.11/bin:/mnt/c/Program Files/Git/cmd:/mnt/d/msys64/mingw64/bin:/mnt/c/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64:/mnt/c/Program Files/Eclipse Adoptium/jdk-17.0.19.10-hotspot/bin:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Program Files/Java/jdk-25/bin:/mnt/d/apache-maven-3.9.11-bin/apache-maven-3.9.11/bin:/mnt/c/Program Files/Git/cmd:/mnt/d/msys64/mingw64/bin:/mnt/c/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64:/mnt/c/msys64/mingw64/bin:/mnt/c/Users/U-ser/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin
+/home/se-chheng-sokuntheary/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 === warmup location ===
-/home/sparkling/bin/warmup
+/home/se-chheng-sokuntheary/bin/warmup
 === warmup command output ===
 Hello from my first script! My current directory is:
-/mnt/d/OS-SE-p20240044/os-lab-p20240044/lab7
+/home/se-chheng-sokuntheary/os-lab-p20240044/lab7

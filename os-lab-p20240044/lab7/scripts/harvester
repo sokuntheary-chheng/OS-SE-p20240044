@@ -1,5 +1,4 @@
 #!/bin/bash
-
 report="$HOME/harvest_report.txt"
 > "$report"
 
