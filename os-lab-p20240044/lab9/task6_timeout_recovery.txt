@@ -1,0 +1,9 @@
+=== sync_timeout permissions ===
+-rwxrwxr-x 1 se-chheng-sokuntheary se-chheng-sokuntheary 585 Jun  9 20:24 /home/se-chheng-sokuntheary/bin/sync_timeout
+=== timeout evidence ===
+sync_timeout: waiting for Vault Alpha
+sync_timeout: locked Vault Alpha
+sync_timeout: waiting for Vault Beta
+ERROR: could not lock Vault Beta within 5 seconds
+exit status: 2
+=== process check after stopping old script ===

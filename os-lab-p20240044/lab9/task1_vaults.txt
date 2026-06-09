@@ -1,0 +1,11 @@
+=== working folder ===
+/home/se-chheng-sokuntheary
+=== vault directories ===
+drwxrwxr-x 2 se-chheng-sokuntheary se-chheng-sokuntheary 4096 Jun  9 14:36 /home/se-chheng-sokuntheary/os-lab-deadlock/vault_alpha
+drwxrwxr-x 2 se-chheng-sokuntheary se-chheng-sokuntheary 4096 Jun  9 15:21 /home/se-chheng-sokuntheary/os-lab-deadlock/vault_beta
+=== vault lock files ===
+-rw-rw-r-- 1 se-chheng-sokuntheary se-chheng-sokuntheary 0 Jun  9 14:50 /home/se-chheng-sokuntheary/os-lab-deadlock/vault_alpha/vault.lock
+-rw-rw-r-- 1 se-chheng-sokuntheary se-chheng-sokuntheary 0 Jun  9 14:50 /home/se-chheng-sokuntheary/os-lab-deadlock/vault_beta/vault.lock
+=== vault marker files ===
+Vault Alpha local resource for p20240044
+Vault Beta local resource for p20240044
