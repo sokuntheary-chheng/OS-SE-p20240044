@@ -1,0 +1,23 @@
+=== backup script permissions ===
+-rwxrwxr-x 1 se-chheng-sokuntheary se-chheng-sokuntheary 792 Jun 16 13:45 /home/se-chheng-sokuntheary/bin/backup_project
+=== archives kept (should be 3) ===
+/home/se-chheng-sokuntheary/os-lab-automation/backups/project_20260616_134620.tar.gz
+/home/se-chheng-sokuntheary/os-lab-automation/backups/project_20260616_134616.tar.gz
+/home/se-chheng-sokuntheary/os-lab-automation/backups/project_20260616_134613.tar.gz
+=== backup log ===
+2026-06-16 13:46:05 | starting backup of /home/se-chheng-sokuntheary/os-lab-automation/project
+2026-06-16 13:46:05 | created archive /home/se-chheng-sokuntheary/os-lab-automation/backups/project_20260616_134605.tar.gz
+2026-06-16 13:46:05 | no old archives to prune
+2026-06-16 13:46:05 | backup finished successfully
+2026-06-16 13:46:13 | starting backup of /home/se-chheng-sokuntheary/os-lab-automation/project
+2026-06-16 13:46:13 | created archive /home/se-chheng-sokuntheary/os-lab-automation/backups/project_20260616_134613.tar.gz
+2026-06-16 13:46:13 | no old archives to prune
+2026-06-16 13:46:13 | backup finished successfully
+2026-06-16 13:46:16 | starting backup of /home/se-chheng-sokuntheary/os-lab-automation/project
+2026-06-16 13:46:16 | created archive /home/se-chheng-sokuntheary/os-lab-automation/backups/project_20260616_134616.tar.gz
+2026-06-16 13:46:16 | no old archives to prune
+2026-06-16 13:46:16 | backup finished successfully
+2026-06-16 13:46:20 | starting backup of /home/se-chheng-sokuntheary/os-lab-automation/project
+2026-06-16 13:46:20 | created archive /home/se-chheng-sokuntheary/os-lab-automation/backups/project_20260616_134620.tar.gz
+2026-06-16 13:46:20 | pruned old archive /home/se-chheng-sokuntheary/os-lab-automation/backups/project_20260616_134605.tar.gz
+2026-06-16 13:46:20 | backup finished successfully

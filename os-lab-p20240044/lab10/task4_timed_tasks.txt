@@ -1,0 +1,10 @@
+=== graded job scripts ===
+-rwxrwxr-x 1 se-chheng-sokuntheary se-chheng-sokuntheary 228 Jun 16 13:55 /home/se-chheng-sokuntheary/bin/deadline_job
+-rwxrwxr-x 1 se-chheng-sokuntheary se-chheng-sokuntheary 226 Jun 16 13:55 /home/se-chheng-sokuntheary/bin/lab_session_job
+=== graded cron jobs installed ===
+# Lab10 GRADED session job - fires once at 2:30 PM on 2026-06-16 (lab session)
+# Lab10 GRADED deadline job - fires once at 2:30 PM on 2026-06-22 (before deadline)
+=== session job output (filled at 2:30 PM) ===
+SESSION_JOB_OK | 2026-06-16 13:56:08 | user=se-chheng-sokuntheary | host=itc-se-g2
+=== deadline job output (empty until 2026-06-22) ===
+DEADLINE_JOB_OK | 2026-06-16 13:56:12 | user=se-chheng-sokuntheary | host=itc-se-g2

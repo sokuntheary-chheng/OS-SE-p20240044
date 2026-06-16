@@ -1,0 +1,57 @@
+=== maintenance script permissions ===
+-rwxrwxr-x 1 se-chheng-sokuntheary se-chheng-sokuntheary 948 Jun 16 14:21 /home/se-chheng-sokuntheary/bin/maintenance
+=== installed cron jobs ===
+# Edit this file to introduce tasks to be run by cron.
+# 
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+# 
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').
+# 
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+# 
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+# 
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+# 
+# For more information see the manual pages of crontab(5) and cron(8)
+# 
+# m h  dom mon dow   command
+* * * * * date '+\%Y-\%m-\%d \%H:\%M:\%S heartbeat' >> $HOME/os-lab-automation/logs/heartbeat.log 2>&1
+# Lab10 GRADED session job - fires once at 2:30 PM on 2026-06-16 (lab session)
+30 14 16 6 * /home/se-chheng-sokuntheary/bin/lab_session_job >> /home/se-chheng-sokuntheary/os-lab-automation/logs/cron_session_job.log 2>&1
+
+# Lab10 GRADED deadline job - fires once at 2:30 PM on 2026-06-22 (before deadline)
+30 14 22 6 * /home/se-chheng-sokuntheary/bin/deadline_job >> /home/se-chheng-sokuntheary/os-lab-automation/logs/cron_deadline_job.log 2>&1
+
+# Lab10 file backup - every 2 minutes (TEST interval)
+*/2 * * * * /home/se-chheng-sokuntheary/bin/backup_project >> /home/se-chheng-sokuntheary/os-lab-automation/logs/cron_backup.log 2>&1
+
+# Lab10 maintenance - log rotation + health check, every 2 minutes (TEST interval)
+*/2 * * * * /home/se-chheng-sokuntheary/bin/maintenance >> /home/se-chheng-sokuntheary/os-lab-automation/logs/cron_maintenance.log 2>&1
+=== health report (multiple entries = cron ran it) ===
+----- health check at 2026-06-16 14:22:03 -----
+disk usage of home : 5%
+my processes       : 10
+load / uptime      :  14:22:03 up 21 days, 21:52, 27 users,  load average: 0.41, 0.37, 0.31
+logs rotated       : 0
+status             : OK (below 90% threshold)
+----- health check at 2026-06-16 14:24:01 -----
+disk usage of home : 5%
+my processes       : 11
+load / uptime      :  14:24:01 up 21 days, 21:54, 28 users,  load average: 0.25, 0.33, 0.30
+logs rotated       : 0
+status             : OK (below 90% threshold)
+----- health check at 2026-06-16 14:26:01 -----
+disk usage of home : 5%
+my processes       : 11
+load / uptime      :  14:26:01 up 21 days, 21:56, 30 users,  load average: 0.46, 0.36, 0.31
+logs rotated       : 0
+status             : OK (below 90% threshold)
