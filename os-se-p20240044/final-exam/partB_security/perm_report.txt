@@ -1,0 +1,66 @@
+=== B1: Permission Story ===
+
+--- ls -l private_file.txt ---
+-rw------- 1 se-chheng-sokuntheary se-chheng-sokuntheary 29 Jun 30 13:34 private_file.txt
+
+--- ls -ld shared_dir ---
+drwx--x--x 2 se-chheng-sokuntheary se-chheng-sokuntheary 4096 Jun 30 13:34 shared_dir
+
+--- stat private_file.txt ---
+  File: private_file.txt
+  Size: 29        	Blocks: 8          IO Block: 4096   regular file
+Device: 252,0	Inode: 47348779    Links: 1
+Access: (0600/-rw-------)  Uid: ( 1119/se-chheng-sokuntheary)   Gid: ( 1121/se-chheng-sokuntheary)
+Access: 2026-06-30 13:34:52.531586520 +0700
+Modify: 2026-06-30 13:34:52.531586520 +0700
+Change: 2026-06-30 13:35:25.907310868 +0700
+ Birth: 2026-06-30 13:34:52.531586520 +0700
+
+--- stat shared_dir ---
+  File: shared_dir
+  Size: 4096      	Blocks: 8          IO Block: 4096   directory
+Device: 252,0	Inode: 47348778    Links: 2
+Access: (0711/drwx--x--x)  Uid: ( 1119/se-chheng-sokuntheary)   Gid: ( 1121/se-chheng-sokuntheary)
+Access: 2026-06-30 13:34:54.020574203 +0700
+Modify: 2026-06-30 13:34:52.529586536 +0700
+Change: 2026-06-30 13:35:25.909310852 +0700
+ Birth: 2026-06-30 13:34:52.529586536 +0700
+
+--- Commands used ---
+chmod 600 private_file.txt      # octal: owner rw only
+chmod u=rw,go= private_file.txt # symbolic equivalent
+chmod 711 shared_dir            # octal: owner rwx, others/group x only (traversable, not listable)
+chmod u=rwx,g=x,o=x shared_dir  # symbolic equivalent
+
+--- Explanation ---
+private_file.txt (0600): only the owner can read or write it; group and others have
+zero permissions, so they cannot even see its contents or attributes via normal access.
+
+shared_dir (0711): the execute bit on a directory controls traversal (cd into it, or
+access a file by exact known name/path), while the read bit controls listing (ls).
+Group/others here have x but not r, so they can enter or access a known file inside it,
+but cannot list (ls) its contents.
+
+=== B2: Special Bits (setgid, sticky) + setuid demo ===
+
+--- setgid_dir ---
+drwxrwsr-x 2 se-chheng-sokuntheary se-chheng-sokuntheary 4096 Jun 30 13:36 setgid_dir
+chmod g+s setgid_dir applied — new files/dirs created inside inherit the directory's
+group, instead of the creating user's primary group. Useful for shared group work areas.
+
+--- sticky_dir ---
+drwxrwxr-t 2 se-chheng-sokuntheary se-chheng-sokuntheary 4096 Jun 30 13:37 sticky_dir
+chmod +t sticky_dir applied — even though the dir is group/other writable, only the
+owner of a file (or the directory owner) can delete/rename that file. Classic use: /tmp.
+
+--- setuid_demo ---
+-rwsrwxr-x 1 se-chheng-sokuntheary se-chheng-sokuntheary 16056 Jun 30 13:37 setuid_demo
+Real UID: 1119
+Effective UID: 1119
+
+Explanation: setuid_demo has the setuid bit set (rws), which normally makes a process's
+EFFECTIVE uid become the FILE OWNER's uid when executed by anyone. Here the file owner is
+se-chheng-sokuntheary (uid 1119) — the same as the real uid running it — so Real UID and
+Effective UID both print 1119. No privilege escalation occurs because escalation would
+only happen if the binary were owned by root (or another higher-privileged user) and
+setuid root requires root/sudo to set, which is disallowed in this exam.

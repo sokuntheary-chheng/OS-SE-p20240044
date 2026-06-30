@@ -1,0 +1,22 @@
+=== Evidence: 1:1 user-thread -> kernel LWP mapping ===
+Captured from a sleep-added evidence copy of thread_demo.c (same logic, sleep(3) added so threads stay alive long enough to inspect).
+
+--- /proc/<PID>/task (kernel-visible LWPs under shared PID) ---
+PID=1446921
+1446921 1446923 1446924 1446925 1446926
+
+--- ps -eLf | grep 1446921 ---
+se-chheng+ 1446921 1435978 1446921  0    5 13:17 pts/23   00:00:00 /tmp/thread_demo_evidence
+se-chheng+ 1446921 1435978 1446923  0    5 13:17 pts/23   00:00:00 /tmp/thread_demo_evidence
+se-chheng+ 1446921 1435978 1446924  0    5 13:17 pts/23   00:00:00 /tmp/thread_demo_evidence
+se-chheng+ 1446921 1435978 1446925  0    5 13:17 pts/23   00:00:00 /tmp/thread_demo_evidence
+se-chheng+ 1446921 1435978 1446926  0    5 13:17 pts/23   00:00:00 /tmp/thread_demo_evidence
+
+--- /proc/<PID>/status | grep -i threads ---
+Threads: 5
+
+Interpretation: PID column is identical (1446921) for the process and all 4 worker
+LWPs; the right-most numeric column (5th field shown by ps -eLf) differs per row —
+that is each thread's distinct kernel-scheduled LWP id. This confirms Linux's 1:1
+user-thread to kernel-thread (LWP) model: 4 pthread_create() calls produced 4
+separate kernel-schedulable entities, all sharing the same PID/address space.

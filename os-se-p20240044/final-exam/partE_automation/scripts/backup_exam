@@ -1,0 +1,14 @@
+#!/bin/bash
+
+SRC_DIR="$HOME/os-se-p20240044/final-exam"
+DEST_DIR="$HOME/exam-backups"
+STUDENT_ID="p20240044"
+
+mkdir -p "$DEST_DIR"
+
+timestamp=$(date '+%Y%m%d_%H%M%S')
+archive_name="final-exam-${timestamp}.tar.gz"
+
+tar -czf "$DEST_DIR/$archive_name" -C "$HOME/os-se-p20240044" final-exam
+
+echo "Created exam backup: $DEST_DIR/$archive_name"

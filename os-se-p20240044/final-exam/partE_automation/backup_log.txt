@@ -1,0 +1,12 @@
+=== E1: backup_project — retention log ===
+RETAIN_N=2. Ran backup_project 4 times (with sleeps between runs).
+
+Run 1: created project_20260630_140450.tar.gz
+Run 2: created project_20260630_140454.tar.gz
+Run 3: created project_20260630_140458.tar.gz, pruned project_20260630_140450.tar.gz
+Run 4: created project_20260630_140503.tar.gz, pruned project_20260630_140454.tar.gz
+
+Final state: exactly 2 archives retained:
+total 8.0K
+-rw-rw-r-- 1 se-chheng-sokuntheary se-chheng-sokuntheary 274 Jun 30 14:04 project_20260630_140458.tar.gz
+-rw-rw-r-- 1 se-chheng-sokuntheary se-chheng-sokuntheary 274 Jun 30 14:05 project_20260630_140503.tar.gz

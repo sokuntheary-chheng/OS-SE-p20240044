@@ -1,0 +1,14 @@
+#!/bin/bash
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BUY_SCRIPT="$SCRIPT_DIR/buy_beacon"
+
+NUM_BUYERS=60
+
+for i in $(seq 1 "$NUM_BUYERS"); do
+    "$BUY_SCRIPT" "buyer$i" 1 > /dev/null 2>&1 &
+done
+
+wait
+
+echo "Swarm finished: $NUM_BUYERS concurrent purchase attempts completed."

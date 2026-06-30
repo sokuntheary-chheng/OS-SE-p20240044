@@ -1,0 +1,14 @@
+=== C1: greeter — PATH setup & resolution ===
+
+--- $PATH ---
+/home/se-chheng-sokuntheary/bin:/home/se-chheng-sokuntheary/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+--- which greeter ---
+/home/se-chheng-sokuntheary/bin/greeter
+
+--- type greeter ---
+greeter is hashed (/home/se-chheng-sokuntheary/bin/greeter)
+
+Explanation: greeter was copied into ~/bin. ~/bin is already prepended to PATH
+via ~/.bashrc (export PATH="$HOME/bin:$PATH"), so the shell finds and runs it
+by bare name 'greeter' without needing './greeter' or a full path.

@@ -1,0 +1,26 @@
+=== D2: Unpatched swarm — race condition observations ===
+Scenario: initial stock=150, concurrent buyers=60. Correct final stock should always be 90.
+
+Run 1: final stock = -1   (INCORRECT — below zero, race caused overselling)
+Run 2: final stock = -1   (INCORRECT — below zero, race caused overselling)
+Run 3: final stock = 140  (INCORRECT — too high, race caused lost decrements)
+
+Explanation: buy_beacon's check-then-act (read stock, validate, then write new
+stock) is not atomic. With 60 concurrent processes, several can read the SAME
+stale stock value before any of them writes back. Depending on timing, this can
+either: (a) let too many purchases succeed against a stale higher stock value,
+driving the final number below zero, or (b) cause concurrent writers to overwrite
+each other's decrements (lost update), leaving MORE stock than correct. Both are
+symptoms of the same Time-of-Check-to-Time-of-Use (TOCTOU) race. This is fixed in
+D3 with an exclusive flock around the read-modify-write critical section.
+
+=== D3: Patched (flock) swarm — deterministic results ===
+After wrapping the read-modify-write critical section in buy_beacon with an
+exclusive flock (flock -x 200, bound to stock.lock):
+
+Run 1 (patched): final stock = 90  (CORRECT)
+Run 2 (patched): final stock = 90  (CORRECT)
+Run 3 (patched): final stock = 90  (CORRECT)
+
+All three runs landed exactly on the expected value of 90 (150 - 60), proving
+the lock serializes access to the critical section and eliminates the race.

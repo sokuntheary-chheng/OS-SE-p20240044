@@ -1,0 +1,37 @@
+#!/bin/bash
+
+STOCK_FILE="$HOME/os-se-p20240044/final-exam/partD_secure/stock.txt"
+LOG_FILE="$HOME/os-se-p20240044/final-exam/partD_secure/sales.log"
+LOCK_FILE="$HOME/os-se-p20240044/final-exam/partD_secure/stock.lock"
+STUDENT_ID="p20240044"
+
+buyer="$1"
+qty="$2"
+
+if [ -z "$buyer" ] || [ -z "$qty" ]; then
+    echo "Usage: buy_beacon <buyer_name> <quantity>"
+    exit 1
+fi
+
+if ! [[ "$qty" =~ ^[0-9]+$ ]] || [ "$qty" -le 0 ]; then
+    echo "Error: quantity must be a positive integer"
+    exit 1
+fi
+
+(
+    flock -x 200
+
+    stock=$(cat "$STOCK_FILE")
+
+    if [ "$qty" -gt "$stock" ]; then
+        echo "Error: insufficient stock (requested $qty, available $stock)"
+        exit 1
+    fi
+
+    new_stock=$((stock - qty))
+    echo "$new_stock" > "$STOCK_FILE"
+    echo "$(date '+%Y-%m-%d %H:%M:%S') | buyer=$buyer qty=$qty new_stock=$new_stock student_id=$STUDENT_ID" >> "$LOG_FILE"
+
+    echo "Purchase OK: $buyer bought $qty Beacon(s). Remaining stock: $new_stock"
+
+) 200>"$LOCK_FILE"

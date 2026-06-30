@@ -1,0 +1,31 @@
+#!/bin/bash
+
+candidates=(
+    "$HOME/collector_test/dir1/file1.txt"
+    "$HOME/collector_test/dir1/locked.txt"
+    "$HOME/collector_test/dir2/file2.txt"
+    "$HOME/collector_test/dir2/missing.txt"
+)
+
+report="$HOME/os-se-p20240044/final-exam/partC_scripting/collected_report.txt"
+> "$report"
+
+echo "=== Collector Report ===" >> "$report"
+
+for f in "${candidates[@]}"; do
+    if [ ! -e "$f" ]; then
+        echo "SKIP (missing): $f"
+        echo "SKIP (missing): $f" >> "$report"
+        continue
+    fi
+    if [ ! -r "$f" ]; then
+        echo "SKIP (unreadable): $f"
+        echo "SKIP (unreadable): $f" >> "$report"
+        continue
+    fi
+    echo "OK: $f"
+    echo "--- $f ---" >> "$report"
+    cat "$f" >> "$report"
+done
+
+echo "Report written to $report"
