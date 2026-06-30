@@ -1,0 +1,58 @@
+=== E2/E3: cron_report.txt ===
+
+--- crontab -l ---
+# Lab10 GRADED session job - fires once at 2:30 PM on 2026-06-16 (lab session)
+30 14 16 6 * /home/se-chheng-sokuntheary/bin/lab_session_job >> /home/se-chheng-sokuntheary/os-lab-automation/logs/cron_session_job.log 2>&1
+# Lab10 GRADED deadline job - fires once at 2:30 PM on 2026-06-22 (before deadline)
+30 14 22 6 * /home/se-chheng-sokuntheary/bin/deadline_job >> /home/se-chheng-sokuntheary/os-lab-automation/logs/cron_deadline_job.log 2>&1
+
+* * * * * /home/se-chheng-sokuntheary/os-se-p20240044/final-exam/partE_automation/scripts/timed_job /home/se-chheng-sokuntheary/os-se-p20240044/final-exam/partE_automation/logs/cron_recurring.log
+35 14 * * * /home/se-chheng-sokuntheary/os-se-p20240044/final-exam/partE_automation/scripts/timed_job /home/se-chheng-sokuntheary/os-se-p20240044/final-exam/partE_automation/logs/cron_oneshot.log
+
+*/5 * * * * /home/se-chheng-sokuntheary/os-se-p20240044/final-exam/partE_automation/scripts/backup_exam >> /home/se-chheng-sokuntheary/os-se-p20240044/final-exam/partE_automation/logs/backup_exam_cron.log 2>&1
+0 16 * * * /home/se-chheng-sokuntheary/os-se-p20240044/final-exam/partE_automation/scripts/backup_exam >> /home/se-chheng-sokuntheary/os-se-p20240044/final-exam/partE_automation/logs/backup_exam_cron.log 2>&1
+
+--- cron_recurring.log (E2, every 1 min) ---
+2026-06-30 14:15:21 | timed_job fired, student_id=p20240044
+2026-06-30 14:16:01 | timed_job fired, student_id=p20240044
+2026-06-30 14:17:01 | timed_job fired, student_id=p20240044
+2026-06-30 14:18:01 | timed_job fired, student_id=p20240044
+2026-06-30 14:19:01 | timed_job fired, student_id=p20240044
+2026-06-30 14:20:01 | timed_job fired, student_id=p20240044
+2026-06-30 14:21:01 | timed_job fired, student_id=p20240044
+2026-06-30 14:22:01 | timed_job fired, student_id=p20240044
+2026-06-30 14:23:01 | timed_job fired, student_id=p20240044
+2026-06-30 14:24:01 | timed_job fired, student_id=p20240044
+2026-06-30 14:25:01 | timed_job fired, student_id=p20240044
+2026-06-30 14:26:01 | timed_job fired, student_id=p20240044
+2026-06-30 14:27:01 | timed_job fired, student_id=p20240044
+2026-06-30 14:28:01 | timed_job fired, student_id=p20240044
+2026-06-30 14:29:01 | timed_job fired, student_id=p20240044
+2026-06-30 14:30:01 | timed_job fired, student_id=p20240044
+2026-06-30 14:31:01 | timed_job fired, student_id=p20240044
+2026-06-30 14:32:01 | timed_job fired, student_id=p20240044
+2026-06-30 14:33:01 | timed_job fired, student_id=p20240044
+2026-06-30 14:34:01 | timed_job fired, student_id=p20240044
+2026-06-30 14:35:01 | timed_job fired, student_id=p20240044
+2026-06-30 14:36:01 | timed_job fired, student_id=p20240044
+
+--- cron_oneshot.log (E2, one-shot 14:35) ---
+2026-06-30 14:35:01 | timed_job fired, student_id=p20240044
+
+--- backup_exam_cron.log (E3) ---
+Created exam backup: /home/se-chheng-sokuntheary/exam-backups/final-exam-20260630_141501.tar.gz
+Created exam backup: /home/se-chheng-sokuntheary/exam-backups/final-exam-20260630_142001.tar.gz
+Created exam backup: /home/se-chheng-sokuntheary/exam-backups/final-exam-20260630_142501.tar.gz
+Created exam backup: /home/se-chheng-sokuntheary/exam-backups/final-exam-20260630_143001.tar.gz
+Created exam backup: /home/se-chheng-sokuntheary/exam-backups/final-exam-20260630_143501.tar.gz
+
+--- ~/exam-backups/ listing (E3) ---
+total 128
+drwxrwxr-x  2 se-chheng-sokuntheary se-chheng-sokuntheary  4096 Jun 30 14:35 .
+drwxr-x--x 23 se-chheng-sokuntheary se-chheng-sokuntheary  4096 Jun 30 14:10 ..
+-rw-rw-r--  1 se-chheng-sokuntheary se-chheng-sokuntheary 19134 Jun 30 14:10 final-exam-20260630_141039.tar.gz
+-rw-rw-r--  1 se-chheng-sokuntheary se-chheng-sokuntheary 19294 Jun 30 14:15 final-exam-20260630_141501.tar.gz
+-rw-rw-r--  1 se-chheng-sokuntheary se-chheng-sokuntheary 19638 Jun 30 14:20 final-exam-20260630_142001.tar.gz
+-rw-rw-r--  1 se-chheng-sokuntheary se-chheng-sokuntheary 18769 Jun 30 14:25 final-exam-20260630_142501.tar.gz
+-rw-rw-r--  1 se-chheng-sokuntheary se-chheng-sokuntheary 18784 Jun 30 14:30 final-exam-20260630_143001.tar.gz
+-rw-rw-r--  1 se-chheng-sokuntheary se-chheng-sokuntheary 19247 Jun 30 14:35 final-exam-20260630_143501.tar.gz

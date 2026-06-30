@@ -1,10 +1,16 @@
 #!/bin/bash
-
 OUTPUT_FILE="$1"
+TOKEN="ONCEKEY"
+TODAY=$(date '+%Y-%m-%d')
 
 if [ -z "$OUTPUT_FILE" ]; then
     echo "Usage: timed_job <output_file>"
     exit 1
 fi
 
-echo "$(date '+%Y-%m-%d %H:%M:%S') | timed_job fired, student_id=p20240044" >> "$OUTPUT_FILE"
+if grep -q "${TODAY}.*${TOKEN}" "$OUTPUT_FILE" 2>/dev/null; then
+    echo "$(date '+%Y-%m-%d %H:%M:%S') | SKIPPED - token $TOKEN already used today" >> "$OUTPUT_FILE"
+    exit 0
+fi
+
+echo "$(date '+%Y-%m-%d %H:%M:%S') | timed_job fired, token=$TOKEN, student_id=p20240044" >> "$OUTPUT_FILE"
