@@ -1,4 +1,3 @@
-cat > ~/os-se-p20240044/final-exam/README.md << 'EOF'
 # Final Exam — Chheng Sokuntheary
 
 Student name: Chheng Sokuntheary
@@ -103,8 +102,5 @@ outcomes across unpatched runs; D3's lock produces the correct value (90) on eve
 
 **Anything not completed:** E1, E2 (recurring + 14:35 one-shot), and E3's recurring
 backup_exam entry are all confirmed fired correctly. E3's 16:00 one-shot backup_exam
-entry was still pending at last check and was verified/recorded in cron_report.txt
-once it fired (see cron_report.txt and partE_automation/logs/ for final evidence).
-EOF
-
-cat ~/os-se-p20240044/final-exam/README.md
+entry was checked once it fired (see cron_report.txt and partE_automation/logs/ for
+final evidence).
