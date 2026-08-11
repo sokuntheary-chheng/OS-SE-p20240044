@@ -1,0 +1,37 @@
+#!/bin/bash
+set -euo pipefail
+
+base="$HOME/os-lab-disk"
+logdir="$base/logs"
+report="$logdir/disk_report.log"
+target="${1:-$HOME}"     # directory to analyze; defaults to $HOME
+threshold=80             # percent filesystem usage that triggers an alert
+
+mkdir -p "$logdir"
+stamp() { date '+%Y-%m-%d %H:%M:%S'; }
+
+{
+    echo "===== QuantumTech disk report at $(stamp) ====="
+    echo "target directory   : $target"
+    echo
+
+    echo "----- mounted filesystems -----"
+    df -hT
+
+    echo
+    echo "----- top 5 directories under target -----"
+    du -h --max-depth=1 "$target" 2>/dev/null | sort -h | tail -n 5
+
+    echo
+    echo "----- filesystem holding target -----"
+    df -h "$target"
+
+    usage=$(df -P "$target" | awk 'NR==2 {gsub("%",""); print $5}')
+    echo
+    if [ "$usage" -ge "$threshold" ]; then
+        echo "ALERT: filesystem for $target is ${usage}% full (>= ${threshold}% threshold)!"
+    else
+        echo "status: OK - filesystem for $target is ${usage}% full (below ${threshold}%)."
+    fi
+    echo
+} | tee -a "$report"

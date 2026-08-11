@@ -1,0 +1,18 @@
+=== df (filesystem view) ===
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sdd       1007G   14G  943G   2% /
+=== du (files view) ===
+11M	/root/os-lab-disk/sample
+=== per-directory breakdown (sorted) ===
+1.1M	/root/os-lab-disk/sample/cache
+1.3M	/root/os-lab-disk/sample/logs
+8.1M	/root/os-lab-disk/sample/data
+11M	/root/os-lab-disk/sample
+=== top 10 consumers ===
+1.1M	/root/os-lab-disk/sample/cache
+1.1M	/root/os-lab-disk/sample/cache/cache.txt
+1.3M	/root/os-lab-disk/sample/logs
+1.3M	/root/os-lab-disk/sample/logs/app.log
+8.0M	/root/os-lab-disk/sample/data/blob.bin
+8.1M	/root/os-lab-disk/sample/data
+11M	/root/os-lab-disk/sample

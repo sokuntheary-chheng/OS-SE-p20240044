@@ -1,0 +1,12 @@
+=== state BEFORE teardown ===
+=== images before teardown ===
+total 69M
+-rw-r--r-- 1 root root  64M Aug 11 08:36 full.img
+-rwxrwxrwx 1 root root 128M Aug 11 09:11 scratch.img
+-rw-r--r-- 1 root root  64M Aug 11 08:36 sparse.img
+=== any lab mounts still present? ===
+(none)
+=== images AFTER teardown (should be empty) ===
+total 0
+=== mounts AFTER teardown (should be none) ===
+(no lab mounts remain)

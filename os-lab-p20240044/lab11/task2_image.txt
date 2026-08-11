@@ -1,0 +1,8 @@
+=== apparent size (ls -lh) ===
+-rw-r--r-- 1 root root 64M Aug 11 08:36 /root/os-lab-disk/images/full.img
+-rw-r--r-- 1 root root 64M Aug 11 08:36 /root/os-lab-disk/images/sparse.img
+=== real disk usage (du -h) -> note sparse uses ~0 ===
+0	/root/os-lab-disk/images/sparse.img
+64M	/root/os-lab-disk/images/full.img
+=== working image created with dd ===
+-rwxrwxrwx 1 root root 64M Aug 11 08:38 /root/os-lab-disk/images/scratch.img

@@ -1,0 +1,30 @@
+#!/bin/bash
+set -euo pipefail
+
+base="$HOME/os-lab-disk"
+logfile="$base/logs/my_disktool.log"
+target="${1:-$HOME}"
+count="${2:-10}"          # how many top files to list; defaults to 10
+
+mkdir -p "$base/logs"
+stamp() { date '+%Y-%m-%d %H:%M:%S'; }
+
+{
+    echo "===== Big-File Finder report at $(stamp) ====="
+    echo "target directory : $target"
+    echo "showing top      : $count files"
+    echo
+
+    if [ ! -d "$target" ]; then
+        echo "ERROR: $target is not a directory."
+        exit 1
+    fi
+
+    echo "----- top $count largest files under $target -----"
+    find "$target" -type f -printf '%s\t%p\n' 2>/dev/null \
+        | sort -rn \
+        | head -n "$count" \
+        | awk -F'\t' '{ printf "%10.2f MB   %s\n", $1/1024/1024, $2 }'
+
+    echo
+} | tee -a "$logfile"

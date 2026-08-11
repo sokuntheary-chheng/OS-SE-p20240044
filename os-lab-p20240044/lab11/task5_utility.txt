@@ -1,0 +1,38 @@
+=== disk_report script permissions ===
+-rwxr-xr-x 1 root root 1039 Aug 11 09:04 /root/bin/disk_report
+=== disk_report run on the sample tree ===
+===== QuantumTech disk report at 2026-08-11 09:06:08 =====
+target directory   : /root/os-lab-disk/sample
+
+----- mounted filesystems -----
+Filesystem     Type           Size  Used Avail Use% Mounted on
+none           overlay        3.8G     0  3.8G   0% /usr/lib/modules/6.18.33.2-microsoft-standard-WSL2
+none           tmpfs          3.8G  4.0K  3.8G   1% /mnt/wsl
+drivers        9p             225G  195G   31G  87% /usr/lib/wsl/drivers
+/dev/sdd       ext4          1007G   14G  942G   2% /
+none           tmpfs          3.8G   52K  3.8G   1% /mnt/wslg
+none           overlay        3.8G     0  3.8G   0% /usr/lib/wsl/lib
+rootfs         rootfs         3.8G  2.8M  3.8G   1% /init
+none           tmpfs          3.8G  904K  3.8G   1% /run
+none           tmpfs          3.8G     0  3.8G   0% /run/lock
+none           tmpfs          3.8G  1.1M  3.8G   1% /run/shm
+none           overlay        3.8G   80K  3.8G   1% /mnt/wslg/versions.txt
+none           overlay        3.8G   80K  3.8G   1% /mnt/wslg/doc
+C:\            9p             225G  195G   31G  87% /mnt/c
+D:\            9p             251G  111G  140G  45% /mnt/d
+snapfuse       fuse.snapfuse   67M   67M     0 100% /snap/core24/1643
+snapfuse       fuse.snapfuse   51M   51M     0 100% /snap/snapd/27591
+tmpfs          tmpfs          776M   24K  776M   1% /run/user/0
+
+----- top 5 directories under target -----
+1.1M	/root/os-lab-disk/sample/cache
+1.3M	/root/os-lab-disk/sample/logs
+8.1M	/root/os-lab-disk/sample/data
+11M	/root/os-lab-disk/sample
+
+----- filesystem holding target -----
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sdd       1007G   14G  942G   2% /
+
+status: OK - filesystem for /root/os-lab-disk/sample is 2% full (below 80%).
+

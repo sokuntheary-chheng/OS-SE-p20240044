@@ -1,0 +1,51 @@
+=== block devices (lsblk -f) ===
+NAME FSTYPE FSVER LABEL UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
+sda  ext4   1.0                                                             
+sdb  ext4   1.0                                                             
+sdc  swap   1           888fc637-23da-4ec4-b66b-f797d33b3326                [SWAP]
+sdd  ext4   1.0         c9b73bbb-2308-4d5b-8601-c0392ad35260    942G     1% /snap
+                                                                            /mnt/wslg/distro
+                                                                            /
+=== mounted filesystems (df -hT) ===
+Filesystem     Type           Size  Used Avail Use% Mounted on
+none           overlay        3.8G     0  3.8G   0% /usr/lib/modules/6.18.33.2-microsoft-standard-WSL2
+none           tmpfs          3.8G  4.0K  3.8G   1% /mnt/wsl
+drivers        9p             225G  194G   32G  86% /usr/lib/wsl/drivers
+/dev/sdd       ext4          1007G   14G  943G   2% /
+none           tmpfs          3.8G   40K  3.8G   1% /mnt/wslg
+none           overlay        3.8G     0  3.8G   0% /usr/lib/wsl/lib
+rootfs         rootfs         3.8G  2.8M  3.8G   1% /init
+none           tmpfs          3.8G  900K  3.8G   1% /run
+none           tmpfs          3.8G     0  3.8G   0% /run/lock
+none           tmpfs          3.8G  1.1M  3.8G   1% /run/shm
+none           overlay        3.8G   80K  3.8G   1% /mnt/wslg/versions.txt
+none           overlay        3.8G   80K  3.8G   1% /mnt/wslg/doc
+C:\            9p             225G  194G   32G  86% /mnt/c
+D:\            9p             251G  111G  140G  45% /mnt/d
+snapfuse       fuse.snapfuse   67M   67M     0 100% /snap/core24/1643
+snapfuse       fuse.snapfuse   51M   51M     0 100% /snap/snapd/27591
+tmpfs          tmpfs          776M   24K  776M   1% /run/user/0
+=== inode usage (df -i) ===
+Filesystem       Inodes   IUsed    IFree IUse% Mounted on
+none             993105       5   993100    1% /usr/lib/modules/6.18.33.2-microsoft-standard-WSL2
+none             993105       2   993103    1% /mnt/wsl
+drivers             999 -999001  1000000     - /usr/lib/wsl/drivers
+/dev/sdd       67108864  320649 66788215    1% /
+none             993105      23   993082    1% /mnt/wslg
+none             993105       5   993100    1% /usr/lib/wsl/lib
+rootfs           991666      12   991654    1% /init
+none             993105     620   992485    1% /run
+none             993105       2   993103    1% /run/lock
+none             993105       4   993101    1% /run/shm
+none             993105      53   993052    1% /mnt/wslg/versions.txt
+none             993105      53   993052    1% /mnt/wslg/doc
+C:\                 999 -999001  1000000     - /mnt/c
+D:\                 999 -999001  1000000     - /mnt/d
+snapfuse          10545   10545        0  100% /snap/core24/1643
+snapfuse            610     610        0  100% /snap/snapd/27591
+tmpfs            198621      49   198572    1% /run/user/0
+=== filesystem holding HOME ===
+Filesystem     Type  Size  Used Avail Use% Mounted on
+/dev/sdd       ext4 1007G   14G  943G   2% /
+TARGET SOURCE   FSTYPE OPTIONS
+/      /dev/sdd ext4   rw,relatime,discard,errors=remount-ro,data=ordered

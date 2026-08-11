@@ -1,0 +1,11 @@
+=== mount confirmed (findmnt) ===
+TARGET                SOURCE                               FSTYPE    OPTIONS
+/root/os-lab-disk/mnt /root/os-lab-disk/images/scratch.img fuse.ext4 rw,nosuid,nodev,relatime,user_id=0,group_id=0
+=== filesystem usage of the mount (df -hT) ===
+Filesystem                           Type       Size  Used Avail Use% Mounted on
+/root/os-lab-disk/images/scratch.img fuse.ext4   60M  4.4M   53M   8% /root/os-lab-disk/mnt
+=== files written onto the volume ===
+total 304K
+-rw-r--r-- 1 root root   34 Aug 11 08:56 hello.txt
+drwx------ 2 root root  16K Aug 11 08:40 lost+found
+-rw-r--r-- 1 root root 283K Aug 11 08:56 numbers.txt
